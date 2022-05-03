@@ -4,7 +4,7 @@ from xbmcaddon import Addon
 import sqlite3 as database
 from urllib.parse import urlencode
 
-__addon__ = Addon(id='plugin.video.ezra')
+__addon__ = Addon(id='plugin.video.B99')
 monitor, window, dialog, progressDialog, progressDialogBG = xbmc.Monitor(), xbmcgui.Window(10000), xbmcgui.Dialog(), xbmcgui.DialogProgress(), xbmcgui.DialogProgressBG()
 player, xbmc_player, numeric_input, xbmc_monitor = xbmc.Player(), xbmc.Player, xbmcgui.INPUT_NUMERIC, xbmc.Monitor
 get_infolabel, get_visibility, execute_JSON, window_xml_dialog = xbmc.getInfoLabel, xbmc.getCondVisibility, xbmc.executeJSONRPC, xbmcgui.WindowXMLDialog
@@ -15,16 +15,16 @@ window_xml_context_actions = (xbmcgui.ACTION_CONTEXT_MENU, xbmcgui.ACTION_MOUSE_
 window_xml_left_action, window_xml_right_action = xbmcgui.ACTION_MOVE_LEFT, xbmcgui.ACTION_MOVE_RIGHT
 window_xml_up_action, window_xml_down_action = xbmcgui.ACTION_MOVE_UP, xbmcgui.ACTION_MOVE_DOWN
 translatePath = xbmcvfs.translatePath
-navigator_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/navigator.db')
-watched_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/watched.db')
-favorites_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/favourites.db')
-views_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/views.db')
-trakt_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/traktcache4.db')
-maincache_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/maincache.db')
-metacache_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/metacache.db')
-debridcache_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/debridcache.db')
-external_db = translatePath('special://profile/addon_data/plugin.video.ezra/databases/providerscache2.db')
-databases_path = translatePath('special://profile/addon_data/plugin.video.ezra/databases/')
+navigator_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/navigator.db')
+watched_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/watched.db')
+favorites_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/favourites.db')
+views_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/views.db')
+trakt_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/traktcache4.db')
+maincache_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/maincache.db')
+metacache_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/metacache.db')
+debridcache_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/debridcache.db')
+external_db = translatePath('special://profile/addon_data/plugin.video.B99/databases/providerscache2.db')
+databases_path = translatePath('special://profile/addon_data/plugin.video.B99/databases/')
 current_dbs = ('debridcache.db', 'favourites.db', 'maincache.db', 'metacache.db', 'navigator.db', 'providerscache2.db', 'traktcache4.db', 'views.db', 'watched.db')
 myvideos_db_paths = {18: '116', 19: '119', 20: '119'}
 movie_dict_removals = ('fanart_added', 'cast', 'poster', 'rootname', 'imdb_id', 'tmdb_id', 'tvdb_id', 'all_trailers',
@@ -48,7 +48,7 @@ def set_property(prop, value):
 def clear_property(prop):
 	return window.clearProperty(prop)
 
-def addon(addon_id='plugin.video.ezra'):
+def addon(addon_id='plugin.video.B99'):
 	return Addon(id=addon_id)
 
 def addon_installed(addon_id):
@@ -205,7 +205,7 @@ def show_text(heading, text=None, file=None, font_size='small', kodi_log=False):
 
 def notification(line1, time=5000, icon=None, sound=False):
 	if isinstance(line1, int): line1 = local_string(line1)
-	icon = icon or translate_path('special://home/addons/plugin.video.ezra/icon.png')
+	icon = icon or translate_path('special://home/addons/plugin.video.B99/icon.png')
 	xbmcgui.Dialog().notification('Fen', line1, icon, time, sound)
 
 def choose_view(view_type, content):
@@ -213,7 +213,7 @@ def choose_view(view_type, content):
 	__handle__ = int(argv[1])
 	set_view_str = local_string(32547)
 	settings_icon = translate_path('special://home/addons/script.ezart/resources/media/settings.png')
-	fanart = translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+	fanart = translate_path('special://home/addons/plugin.video.B99/fanart.png')
 	listitem = make_listitem()
 	listitem.setLabel(set_view_str)
 	params_url = build_url({'mode': 'set_view', 'view_type': view_type})
@@ -277,10 +277,10 @@ def timeIt(func):
 	return wrap
 
 def build_url(url_params):
-	return ''.join(['plugin://plugin.video.ezra/?', urlencode(url_params)])
+	return ''.join(['plugin://plugin.video.B99/?', urlencode(url_params)])
 
 def add_dir(url_params, list_name, __handle__, iconImage='DefaultFolder.png', fanartImage=None, isFolder=True):
-	fanart = fanartImage or translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+	fanart = fanartImage or translate_path('special://home/addons/plugin.video.B99/fanart.png')
 	icon = translate_path('special://home/addons/script.ezart/resources/media/%s' % iconImage)
 	url = build_url(url_params)
 	listitem = make_listitem()
