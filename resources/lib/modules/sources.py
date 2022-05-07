@@ -4,11 +4,11 @@ import json
 from threading import Thread
 from urllib.parse import unquote
 import metadata
-from fenomscrapers import sources
+from B99scrapers import sources
 from windows import open_window, create_window
 from scrapers import external, folders
 from modules import debrid, resolver, kodi_utils, settings
-from modules.player import FenPlayer
+from modules.player import B99Player
 from modules.settings_reader import get_setting
 from modules.source_utils import internal_sources, internal_folders_import, scraper_names, get_cache_expiry
 from modules.utils import clean_file_name, string_to_float, safe_string, remove_accents, get_datetime
@@ -91,7 +91,7 @@ class Sources():
 		self.include_3D_results = get_setting('include_3d_results') == 'true'
 		self._update_meta()
 		self._search_info()
-		set_property('fen_playback_meta', json.dumps(self.meta))
+		set_property('B99_playback_meta', json.dumps(self.meta))
 		self.get_sources()
 
 	def get_sources(self):
@@ -278,7 +278,7 @@ class Sources():
 
 	def play_execute_background(self, results):
 		background_url = self.play_file(results, autoplay=True, background=True)
-		set_property('fen_background_url', background_url)
+		set_property('B99_background_url', background_url)
 
 	def _get_active_scraper_names(self, scraper_list):
 		return [i[2] for i in scraper_list]
@@ -486,14 +486,14 @@ class Sources():
 		t_files.sort(key=lambda k: k['name'].lower())
 		hide_busy_dialog()
 		if download: return t_files
-		default_furk_icon = translate_path('special://home/addons/script.ezart/resources/media/furk.png')
+		default_furk_icon = translate_path('special://home/addons/script.B99art/resources/media/furk.png')
 		list_items = [{'line1': '%.2f GB | %s' % (float(item['size'])/1073741824, clean_file_name(item['name']).upper()), 'icon': default_furk_icon} for item in t_files]
 		kwargs = {'items': json.dumps(list_items), 'heading': name, 'highlight': highlight, 'enumerate': 'true', 'multi_choice': 'false', 'multi_line': 'false'}
 		chosen_result = select_dialog(t_files, **kwargs)
 		if chosen_result is None: return None
 		link = chosen_result['url_dl']
 		name = chosen_result['name']
-		return FenPlayer().run(link, 'video')
+		return B99Player().run(link, 'video')
 
 	def debridPacks(self, debrid_provider, name, magnet_url, info_hash, highlight=None, download=False):
 		if debrid_provider == 'Real-Debrid':
@@ -512,7 +512,7 @@ class Sources():
 		if not debrid_files: return notification(32574)
 		debrid_files.sort(key=lambda k: k['filename'].lower())
 		if download: return debrid_files, debrid_function
-		default_debrid_icon = translate_path('special://home/addons/script.ezart/resources/media/%s' % icon)
+		default_debrid_icon = translate_path('special://home/addons/script.B99art/resources/media/%s' % icon)
 		list_items = [{'line1': '%.2f GB | %s' % (float(item['size'])/1073741824, clean_file_name(item['filename']).upper()), 'icon': default_debrid_icon} \
 							for item in debrid_files]
 		kwargs = {'items': json.dumps(list_items), 'heading': name, 'highlight': highlight, 'enumerate': 'true', 'multi_choice': 'false', 'multi_line': 'false'}
@@ -524,7 +524,7 @@ class Sources():
 		elif debrid_provider == 'Premiumize.me':
 			link = debrid_function().add_headers_to_url(url_dl)
 		name = chosen_result['filename']
-		return FenPlayer().run(link, 'video')
+		return B99Player().run(link, 'video')
 
 	def play_file(self, results, source={}, autoplay=False, background=False):
 		def _resolve_dialog():
@@ -572,7 +572,7 @@ class Sources():
 			_resolve_dialog()
 			if background: return self.url
 			if self.caching_confirmed: return self.resolve_sources(self.url, self.meta, cache_item=True)
-			return FenPlayer().run(self.url)
+			return B99Player().run(self.url)
 		except: pass
 
 	def resolve_sources(self, item, meta, cache_item=False):
@@ -590,7 +590,7 @@ class Sources():
 						url = resolve_uncached_torrents(item['debrid'], item['url'], item['hash'], title, season, episode)
 						if not url: return None
 						if url == 'cache_pack_success': return
-						return FenPlayer().run(url)
+						return B99Player().run(url)
 					else:
 						url = 'uncached'
 						return url
