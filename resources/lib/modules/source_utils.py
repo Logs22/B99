@@ -2,7 +2,7 @@
 import re
 import json
 from urllib.parse import unquote, unquote_plus
-from fenomscrapers.modules.control import getSettingDefault as fenom_default_settings, setting as fenom_getSetting, setSetting as fenom_setSetting
+from B99scrapers.modules.control import getSettingDefault as B99_default_settings, setting as B99_getSetting, setSetting as B99_setSetting
 from metadata import season_episodes_meta
 from modules import kodi_utils
 from modules.settings import check_prescrape_sources, date_offset, metadata_user_info
@@ -10,7 +10,7 @@ from modules.utils import manual_function_import, adjust_premiered_date, get_dat
 # from modules.kodi_utils import logger
 
 string = str
-source_folder_location = 'special://home/addons/script.module.ezscrapers/lib/fenomscrapers/sources_fenomscrapers/%s'
+source_folder_location = 'special://home/addons/script.module.ezscrapers/lib/B99scrapers/sources_B99scrapers/%s'
 RES_4K = ('.4k', 'hd4k', '4khd', '.uhd', 'ultrahd', 'ultra.hd', 'hd2160', '2160hd', '2160', '2160p', '216o', '216op')
 RES_1080 = ('1080', '1080p', '1080i', 'hd1080', '1080hd', 'hd1080p', 'm1080p', 'fullhd', 'full.hd', '1o8o', '1o8op', '108o', '108op', '1o80', '1o80p')
 RES_720 = ('720', '720p', '720i', 'hd720', '720hd', 'hd720p', '72o', '72op')
@@ -109,7 +109,7 @@ def toggle_all(folder, setting, silent=False):
 		sourcelist = scraper_names(folder)
 		for i in sourcelist:
 			source_setting = 'provider.' + i
-			fenom_setSetting(source_setting, setting)
+			B99_setSetting(source_setting, setting)
 		if silent: return
 		return _ext_scrapers_notice(32576)
 	except:
@@ -127,8 +127,8 @@ def enable_disable(folder):
 		chosen = kodi_utils.select_dialog(all_sources, **kwargs)
 		if chosen == None: return
 		for i in all_sources:
-			if i in chosen: fenom_setSetting('provider.' + i, 'true')
-			else: fenom_setSetting('provider.' + i, 'false')
+			if i in chosen: B99_setSetting('provider.' + i, 'true')
+			else: B99_setSetting('provider.' + i, 'false')
 		return _ext_scrapers_notice(32576)
 	except: return _ext_scrapers_notice(32574)
 
@@ -136,19 +136,19 @@ def set_default_scrapers():
 	all_scrapers = scraper_names('all')
 	for i in all_scrapers:
 		scraper = 'provider.' + i
-		default_setting = fenom_default_settings(scraper)
-		fenom_setSetting(scraper, default_setting)
+		default_setting = B99_default_settings(scraper)
+		B99_setSetting(scraper, default_setting)
 
 def scrapers_status(folder='all'):
 	providers = scraper_names(folder)
-	enabled = [i for i in providers if fenom_getSetting('provider.' + i) == 'true']
+	enabled = [i for i in providers if B99_getSetting('provider.' + i) == 'true']
 	disabled = [i for i in providers if i not in enabled]
 	return enabled, disabled
 
 def scraper_names(folder):
 	providerList = []
 	append = providerList.append
-	source_folder_location = 'special://home/addons/script.module.ezscrapers/lib/fenomscrapers/sources_fenomscrapers/%s'
+	source_folder_location = 'special://home/addons/script.module.ezscrapers/lib/B99scrapers/sources_B99scrapers/%s'
 	sourceSubFolders = ('hosters', 'torrents')
 	if folder != 'all': sourceSubFolders = [i for i in sourceSubFolders if i == folder]
 	for item in sourceSubFolders:
