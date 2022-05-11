@@ -6,7 +6,7 @@
         <import addon="script.module.myaccounts" version="2.0.1" />
         <import addon="script.module.B99scrapers" version="0.0.3" />
     </requires>
-    <extension library="resources/lib/fen.py" point="xbmc.python.pluginsource">
+    <extension library="resources/lib/B99.py" point="xbmc.python.pluginsource">
         <provides>video</provides>
     </extension>
     <extension library="resources/lib/service.py" point="xbmc.service" />
