@@ -1,10 +1,10 @@
-<addon id="plugin.video.B99" name="B99" provider-name="" version="0.0.12">
+<addon id="plugin.video.B99" name="B99" provider-name="" version="0.0.13">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.requests" version="2.19.1" />
         <import addon="script.B99art" version="0.0.1" />
         <import addon="script.module.myaccounts" version="2.0.1" />
-        <import addon="script.module.B99scrapers" version="0.0.7" />
+        <import addon="script.module.B99scrapers" version="0.0.8" />
     </requires>
     <extension library="resources/lib/B99.py" point="xbmc.python.pluginsource">
         <provides>video</provides>
