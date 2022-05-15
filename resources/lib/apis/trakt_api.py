@@ -12,8 +12,8 @@ from modules.requests_utils import make_session
 from modules.utils import sort_list, sort_for_article, make_thread_list, jsondate_to_datetime as js2date
 
 ls, logger = kodi_utils.local_string, kodi_utils.logger
-CLIENT_ID = 'e3a8d1c673dfecb7f669b23ecbf77c75fcfd24d3e8c3dbc7f79ed995262fa1db'
-trakt_icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/trakt.png')
+CLIENT_ID = 'd27058bdc6db47a222fbc4452b97b86d1d0f2e31268835d2d4684167b7f7f099'
+trakt_icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/trakt.png')
 trakt_str = ls(32037)
 API_ENDPOINT = 'https://api.trakt.tv/%s'
 timeout = 20
