@@ -87,7 +87,7 @@ def random_choice(tmdb_id, poster):
 
 def trakt_manager_choice(params):
 	if not get_setting('trakt_user', ''): return notification(32760, 3500)
-	icon = params.get('icon', None) or translate_path('special://home/addons/script.ezart/resources/media/trakt.png')
+	icon = params.get('icon', None) or translate_path('special://home/addons/script.B99art/resources/media/trakt.png')
 	choices = [('%s %s...' % (ls(32602), ls(32199)), 'Add'), ('%s %s...' % (ls(32603), ls(32199)), 'Remove')]
 	list_items = [{'line1': item[0], 'icon': icon} for item in choices]
 	kwargs = {'items': json.dumps(list_items), 'heading': ls(32198).replace('[B]', '').replace('[/B]', '')}
@@ -121,7 +121,7 @@ def set_quality_choice(quality_setting):
 	try: preselect = [fl.index(i) for i in get_setting(quality_setting).split(', ')]
 	except: preselect = []
 	list_items = [{'line1': item} for item in dl]
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'true', 'multi_line': 'false', 'preselect': preselect}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'true', 'multi_line': 'false', 'preselect': preselect}
 	choice = select_dialog(fl, **kwargs)
 	if choice is None: return
 	if choice == []:
@@ -130,7 +130,7 @@ def set_quality_choice(quality_setting):
 	set_setting(quality_setting, ', '.join(choice))
 
 def extras_lists_choice():
-	screenshots_directory = 'special://home/addons/script.ezart/resources/screenshots/extras/%s'
+	screenshots_directory = 'special://home/addons/script.B99art/resources/screenshots/extras/%s'
 	fl = [2050, 2051, 2052, 2053, 2054, 2055, 2056, 2057, 2058, 2059, 2060, 2061, 2062]
 	dl = [
 			{'name': ls(32664),                            'image': translate_path(screenshots_directory % '001_cast.jpg')},
@@ -165,7 +165,7 @@ def set_language_filter_choice(filter_setting):
 	try: preselect = [fl.index(i) for i in get_setting(filter_setting).split(', ')]
 	except: preselect = []
 	list_items = [{'line1': item} for item in dl]
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'true', 'multi_line': 'false', 'preselect': preselect}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'true', 'multi_line': 'false', 'preselect': preselect}
 	choice = select_dialog(fl, **kwargs)
 	if choice == None: return
 	if choice == []: return set_setting(filter_setting, 'eng')
@@ -177,7 +177,7 @@ def enable_scrapers_choice():
 	scraper_names = [ls(32118).upper(), ls(32069).upper(), ls(32070).upper(), ls(32098).upper(), ls(32097).upper(), ls(32099).upper(), ls(32108).upper()]
 	preselect = [scrapers.index(i) for i in settings.active_internal_scrapers()]
 	list_items = [{'line1': item} for item in scraper_names]
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'true', 'multi_line': 'false', 'preselect': preselect}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'true', 'multi_line': 'false', 'preselect': preselect}
 	choice = select_dialog(scrapers, **kwargs)
 	if choice is None: return
 	for i in scrapers:
@@ -186,9 +186,9 @@ def enable_scrapers_choice():
 
 def folder_scraper_manager_choice(folder_info=None):
 	def _get_property(setting_id):
-		return get_property('fen_%s' % setting_id) or get_setting(setting_id)
+		return get_property('B99_%s' % setting_id) or get_setting(setting_id)
 	def _set_property(setting_id, setting_value):
-		set_property('fen_%s' % setting_id, setting_value)
+		set_property('B99_%s' % setting_id, setting_value)
 	def _clear_property(setting_id):
 		clear_property(setting_id)
 	def _exit_save_settings():
@@ -196,9 +196,9 @@ def folder_scraper_manager_choice(folder_info=None):
 			set_setting(name_setting % folder_no,  _get_property(name_setting % folder_no))
 			set_setting(movie_dir_setting % folder_no,  _get_property(movie_dir_setting % folder_no))
 			set_setting(tvshow_dir_setting % folder_no,  _get_property(tvshow_dir_setting % folder_no))
-			_clear_property('fen_%s' % name_setting % folder_no)
-			_clear_property('fen_%s' % movie_dir_setting % folder_no)
-			_clear_property('fen_%s' % tvshow_dir_setting % folder_no)
+			_clear_property('B99_%s' % name_setting % folder_no)
+			_clear_property('B99_%s' % movie_dir_setting % folder_no)
+			_clear_property('B99_%s' % tvshow_dir_setting % folder_no)
 	def _return(passed_folder_info):
 		return folder_scraper_manager_choice(passed_folder_info)
 	def _make_folders():
@@ -226,19 +226,19 @@ def folder_scraper_manager_choice(folder_info=None):
 	def _set_folder_path():
 		if _get_property(setting) not in ('', 'None'):
 			list_items = [{'line1': item} for item in [ls(32682), ls(32683)]]
-			kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+			kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 			action = select_dialog([1, 2], **kwargs)
 			if action == None: _return(folder_info)
 			if action == 1:
 				_set_property(setting, 'None')
 				_return(folder_info)
 			else:
-				folder = dialog.browse(0, 'Fen', '')
+				folder = dialog.browse(0, 'B99', '')
 				if not folder: folder = 'None'
 				_set_property(setting, folder)
 				_return(folder_info)
 		else:
-			folder = dialog.browse(0, 'Fen', '')
+			folder = dialog.browse(0, 'B99', '')
 			if not folder: folder = 'None'
 			_set_property(setting, folder)
 			_return(folder_info)
@@ -256,7 +256,7 @@ def folder_scraper_manager_choice(folder_info=None):
 		else: _update_folder_info()
 		listing = _make_listing()
 		list_items = [{'line1': item[0]} for item in listing]
-		kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+		kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 		setting = select_dialog([i[1] for i in listing], **kwargs)
 		_process_setting()
 	except Exception as e:
@@ -267,7 +267,7 @@ def results_sorting_choice():
 	choices = [('%s, %s, %s' % (quality, provider, size), '0'), ('%s, %s, %s' % (quality, size, provider), '1'), ('%s, %s, %s' % (provider, quality, size), '2'),
 			   ('%s, %s, %s' % (provider, size, quality), '3'), ('%s, %s, %s' % (size, quality, provider), '4'), ('%s, %s, %s' % (size, provider, quality), '5')]
 	list_items = [{'line1': item[0]} for item in choices]
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 	choice = select_dialog(choices, **kwargs)
 	if choice:
 		set_setting('results.sort_order_display', choice[0])
@@ -276,12 +276,12 @@ def results_sorting_choice():
 def results_highlights_choice():
 	choices = ((ls(32240), '0'), (ls(32583), '1'), (ls(32241), '2'))
 	list_items = [{'line1': item[0]} for item in choices]
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 	choice = select_dialog([i[1] for i in choices], **kwargs)
 	if choice: return set_setting('highlight.type', choice)
 
 def results_layout_choice():
-	screenshots_directory = 'special://home/addons/script.ezart/resources/screenshots/results/%s'
+	screenshots_directory = 'special://home/addons/script.B99art/resources/screenshots/results/%s'
 	xml_choices = [
 					('List Default',                 translate_path(screenshots_directory % 'source_results_list.default.jpg')),
 					('List Contrast Default',        translate_path(screenshots_directory % 'source_results_list.contrast.default.jpg')),
@@ -310,7 +310,7 @@ def results_layout_choice():
 def set_subtitle_choice():
 	choices = ((ls(32192), '0'), (ls(32193), '1'), (ls(32027), '2'))
 	list_items = [{'line1': item[0]} for item in choices]
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 	choice = select_dialog([i[1] for i in choices], **kwargs)
 	if choice: return set_setting('subtitles.subs_action', choice)
 
@@ -338,7 +338,7 @@ def scraper_color_choice(setting):
 	chosen_color = color_choice()
 	if chosen_color: set_setting(setting, chosen_color)
 
-def color_choice(msg_dialog='Fen', no_color=False):
+def color_choice(msg_dialog='B99', no_color=False):
 	from modules.meta_lists import meta_colors
 	color_chart = meta_colors
 	color_display = ['[COLOR=%s]%s[/COLOR]' % (i, i.capitalize()) for i in color_chart]
@@ -346,7 +346,7 @@ def color_choice(msg_dialog='Fen', no_color=False):
 		color_chart.insert(0, 'No Color')
 		color_display.insert(0, 'No Color')
 	list_items = [{'line1': item} for item in color_display]
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 	choice = select_dialog(color_chart, **kwargs)
 	if choice == None: return
 	return choice
@@ -369,13 +369,13 @@ def favorites_choice(params):
 	favourites = Favourites(params)
 	media_type, tmdb_id, title = params['media_type'], params['tmdb_id'], params['title']
 	current_favourites = favourites.get_favourites(media_type)
-	if any(i['tmdb_id'] == tmdb_id for i in current_favourites): action, text = favourites.remove_from_favourites, '%s Fen %s?' % (ls(32603), ls(32453))
-	else: action, text = favourites.add_to_favourites, '%s Fen %s?' % (ls(32602), ls(32453))
-	if not confirm_dialog(heading='Fen - %s' % title, text=text, top_space=True): return
+	if any(i['tmdb_id'] == tmdb_id for i in current_favourites): action, text = favourites.remove_from_favourites, '%s B99 %s?' % (ls(32603), ls(32453))
+	else: action, text = favourites.add_to_favourites, '%s B99 %s?' % (ls(32602), ls(32453))
+	if not confirm_dialog(heading='B99 - %s' % title, text=text, top_space=True): return
 	action()
 
 def external_scrapers_choice():
-	icon = translate_path('special://home/addons/script.module.ezscrapers/icon.png')
+	icon = translate_path('special://home/addons/script.module.B99scrapers/icon.png')
 	all_color, hosters_color, torrent_color = 'mediumvioletred', get_setting('hoster.identify'), get_setting('torrent.identify')
 	enable_string, disable_string, specific_string, all_string = ls(32055), ls(32024), ls(32536), ls(32525)
 	scrapers_string, hosters_string, torrent_string = ls(32533), ls(33031), ls(32535)
@@ -401,7 +401,7 @@ def external_scrapers_choice():
 		(torrent_scrapers_base, disable_string_base % torrent_string, {'mode': 'toggle_all', 'folder': 'torrents', 'setting': 'false'}),
 		(torrent_scrapers_base, enable_disable_string_base % torrent_string, {'mode': 'enable_disable', 'folder': 'torrents'})]
 	list_items = [{'line1': item[0], 'line2': item[1], 'icon': icon} for item in tools_menu]
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'true'}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'true'}
 	chosen_tool = select_dialog(tools_menu, **kwargs)
 	if chosen_tool == None: return
 	params = chosen_tool[2]
@@ -431,7 +431,7 @@ def options_menu(params, meta=None):
 	autoplay_next_status, autoplay_next_toggle = (on_str, 'false') if settings.autoplay_next_episode() else (off_str, 'true')
 	results_xml_style_status = get_setting('results.xml_style', 'Default')
 	results_filter_ignore_status, results_filter_ignore_toggle = (on_str, 'false') if settings.ignore_results_filter() else (off_str, 'true')
-	results_sorting_status = get_setting('results.sort_order_display').replace('$ADDON[plugin.video.ezra 32582]', ls(32582))
+	results_sorting_status = get_setting('results.sort_order_display').replace('$ADDON[plugin.video.B99 32582]', ls(32582))
 	current_results_highlights_action = get_setting('highlight.type')
 	results_highlights_status = ls(32240) if current_results_highlights_action == '0' else ls(32583) if current_results_highlights_action == '1' else ls(32241)
 	current_subs_action = get_setting('subtitles.subs_action')
@@ -469,7 +469,7 @@ def options_menu(params, meta=None):
 	if content in ('movie', 'episode'): listing += [(ls(32637), '', 'clear_scrapers_cache')]
 	listing += [('%s %s' % (ls(32118), ls(32513)), '', 'open_external_scrapers_choice')]
 	listing += [('%s %s %s' % (open_str, ls(32522), settings_str), '', 'open_scraper_settings')]
-	listing += [('%s %s %s' % (open_str, ls(32036), settings_str), '', 'open_fen_settings')]
+	listing += [('%s %s %s' % (open_str, ls(32036), settings_str), '', 'open_B99_settings')]
 	listing += [(ls(32640), '', 'save_and_exit')]
 	list_items = list(_builder())
 	heading = ls(32646).replace('[B]', '').replace('[/B]', '')
@@ -495,8 +495,8 @@ def options_menu(params, meta=None):
 	elif choice == 'clear_trakt_cache': return clear_cache('trakt')
 	elif choice == 'clear_scrapers_cache': return source_utils.clear_scrapers_cache()
 	elif choice == 'open_external_scrapers_choice': return external_scrapers_choice()
-	elif choice == 'open_scraper_settings': return execute_builtin('Addon.OpenSettings(script.module.ezscrapers)')
-	elif choice == 'open_fen_settings': return open_settings('0.0')
+	elif choice == 'open_scraper_settings': return execute_builtin('Addon.OpenSettings(script.module.B99scrapers)')
+	elif choice == 'open_B99_settings': return open_settings('0.0')
 	if choice == 'clear_trakt_cache' and content in ('movie', 'tvshow', 'season', 'episode'): execute_builtin('Container.Refresh')
 	show_busy_dialog()
 	sleep(200)

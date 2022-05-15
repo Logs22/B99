@@ -1,6 +1,6 @@
  # Kodi Media Center language file
-# Addon Name: Ezra
-# Addon id: plugin.video.ezra
+# Addon Name: B99
+# Addon id: plugin.video.B99
 # Addon Provider: 
 # Translator English: 
 msgid ""
@@ -71,8 +71,8 @@ msgid "[B]Add to Cloud[/B]"
 msgstr ""
 
 msgctxt "#32017"
-msgid "Auto Start Ezra when Kodi Starts"
-msgstr "Ezra Automatisch Starten Als Kodi Opstart"
+msgid "Auto Start B99 when Kodi Starts"
+msgstr "B99 Automatisch Starten Als Kodi Opstart"
 
 msgctxt "#32018"
 msgid "Set"
@@ -107,8 +107,8 @@ msgid "Ignore Articles When Sorting Lists"
 msgstr ""
 
 msgctxt "#32026"
-msgid "Open Ezra Extras When Selecting..."
-msgstr "Open Ezra Extras Bij Het Selecteren Van..."
+msgid "Open B99 Extras When Selecting..."
+msgstr "Open B99 Extras Bij Het Selecteren Van..."
 
 msgctxt "#32027"
 msgid "Off"
@@ -147,7 +147,7 @@ msgid "Watched Status Provider"
 msgstr ""
 
 msgctxt "#32036"
-msgid "Ezra"
+msgid "B99"
 msgstr ""
 
 msgctxt "#32037"
@@ -171,7 +171,7 @@ msgid "Time Remaining"
 msgstr ""
 
 msgctxt "#32042"
-msgid "Set Watched in Kodi Library when Watched in Ezra"
+msgid "Set Watched in Kodi Library when Watched in B99"
 msgstr ""
 
 msgctxt "#32043"
@@ -467,7 +467,7 @@ msgid "External Scrapers"
 msgstr ""
 
 msgctxt "#32119"
-msgid "External Scrapers (Powered by Ezscrapers)"
+msgid "External Scrapers (Powered by B99scrapers)"
 msgstr ""
 
 msgctxt "#32120"
@@ -519,8 +519,8 @@ msgid "Press Context Menu for Playback Options..."
 msgstr ""
 
 msgctxt "#32137"
-msgid "Ezscrapers Default Providers"
-msgstr "Ezscrapers Standaard Providers"
+msgid "B99scrapers Default Providers"
+msgstr "B99scrapers Standaard Providers"
 
 msgctxt "#32138"
 msgid "Results Color Highlights"
@@ -1183,7 +1183,7 @@ msgid "Authorize Debrid Services"
 msgstr ""
 
 msgctxt "#32518"
-msgid "Tips for Ezra Use"
+msgid "Tips for B99 Use"
 msgstr ""
 
 msgctxt "#32519"
@@ -1195,7 +1195,7 @@ msgid "4K Results Color"
 msgstr ""
 
 msgctxt "#32522"
-msgid "Ezscrapers"
+msgid "B99scrapers"
 msgstr ""
 
 msgctxt "#32523"
@@ -1811,7 +1811,7 @@ msgid "Filter Title"
 msgstr ""
 
 msgctxt "#32680"
-msgid "[I]Please visit Ez Scrapers to change settings[/I]"
+msgid "[I]Please visit B99 Scrapers to change settings[/I]"
 msgstr ""
 
 msgctxt "#32681"
@@ -2006,7 +2006,7 @@ msgid "Saving Torrent to the %s Cloud"
 msgstr ""
 
 msgctxt "#32733"
-msgid "Ezra Cloud Transfer"
+msgid "B99 Cloud Transfer"
 msgstr ""
 
 msgctxt "#32734"
@@ -2894,7 +2894,7 @@ msgid "Uruguay"
 msgstr ""
 
 msgctxt "#32960"
-msgid "Venezuela"
+msgid "VenB99uela"
 msgstr ""
 
 msgctxt "#32961"
@@ -2922,7 +2922,7 @@ msgid "Please go to [B]https://trakt.tv/activate[/B] and enter the code"
 msgstr ""
 
 msgctxt "#32967"
-msgid "Trakt & Ezra Watched Status"
+msgid "Trakt & B99 Watched Status"
 msgstr ""
 
 msgctxt "#32968"
@@ -3078,11 +3078,11 @@ msgid "[B]Reuse Langauage Invoker[/B] is currently set to %s.\n\nDo you wish to 
 msgstr ""
 
 msgctxt "#33019"
-msgid "Changing this setting can create problems within Ezra. Continue?"
+msgid "Changing this setting can create problems within B99. Continue?"
 msgstr ""
 
 msgctxt "#33020"
-msgid "Ezra will reload your profile to refresh the addon.xml"
+msgid "B99 will reload your profile to refresh the addon.xml"
 msgstr ""
 
 msgctxt "#33021"
@@ -3114,7 +3114,7 @@ msgid "Open My Accounts  [I](Enter Account Details Here)[/I]"
 msgstr ""
 
 msgctxt "#33028"
-msgid "(Re)Sync Ezra Settings with My Accounts"
+msgid "(Re)Sync B99 Settings with My Accounts"
 msgstr ""
 
 msgctxt "#33029"
@@ -3210,45 +3210,45 @@ msgid "Set Max. Percent Starting Volume (0-100)"
 msgstr ""
 
 msgctxt "#40001"
-msgid "[B]Ezra: Refresh Widgets[/B]"
+msgid "[B]B99: Refresh Widgets[/B]"
 msgstr ""
 
 msgctxt "#40002"
-msgid "[B]Ezra: Browse...[/B]"
+msgid "[B]B99: Browse...[/B]"
 msgstr ""
 
 msgctxt "#40003"
-msgid "[B]Ezra: Mark Watched[/B]"
+msgid "[B]B99: Mark Watched[/B]"
 msgstr ""
 
 msgctxt "#40004"
-msgid "[B]Ezra: Mark Unwatched[/B]"
+msgid "[B]B99: Mark Unwatched[/B]"
 msgstr ""
 
 msgctxt "#40005"
-msgid "[B]Ezra: Trakt Lists Manager[/B]"
+msgid "[B]B99: Trakt Lists Manager[/B]"
 msgstr ""
 
 msgctxt "#40006"
-msgid "[B]Ezra: Extras...[/B]"
+msgid "[B]B99: Extras...[/B]"
 msgstr ""
 
 msgctxt "#40007"
-msgid "[B]Ezra: Options...[/B]"
+msgid "[B]B99: Options...[/B]"
 msgstr ""
 
 msgctxt "#40008"
-msgid "[B]Ezra: Favorites Manager[/B]"
+msgid "[B]B99: Favorites Manager[/B]"
 msgstr ""
 
 msgctxt "#40009"
-msgid "[B]Ezra: Clear Progress[/B]"
+msgid "[B]B99: Clear Progress[/B]"
 msgstr ""
 
 msgctxt "#40010"
-msgid "[B]Ezra: Play Random[/B]"
+msgid "[B]B99: Play Random[/B]"
 msgstr ""
 
 msgctxt "#40011"
-msgid "[B]Ezra: Browse Season...[/B]"
+msgid "[B]B99: Browse Season...[/B]"
 msgstr ""

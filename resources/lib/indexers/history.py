@@ -8,8 +8,8 @@ from modules import kodi_utils
 ls = kodi_utils.local_string
 build_url = kodi_utils.build_url
 make_listitem = kodi_utils.make_listitem
-icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/search_history.png')
-fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/search_history.png')
+fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 history_str, remove_str = '[B]%s:[/B] [I]%s[/I]' % (ls(32486).upper(), '%s'), ls(32786)
 new_search_str = '[B]%s %s...[/B]' % (ls(32857).upper(), ls(32450).upper())
 mode_dict = {'movie': ('movie_queries', {'mode': 'get_search_term', 'media_type': 'movie'}),

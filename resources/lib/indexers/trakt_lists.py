@@ -13,8 +13,8 @@ from modules.settings import paginate, page_limit
 ls = kodi_utils.local_string
 make_listitem = kodi_utils.make_listitem
 build_url = kodi_utils.build_url
-trakt_icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/trakt.png')
-fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+trakt_icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/trakt.png')
+fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 add2menu_str, add2folder_str, likelist_str, unlikelist_str = ls(32730), ls(32731), ls(32776), ls(32783)
 newlist_str, deletelist_str, nextpage_str, jump2_str = ls(32780), ls(32781), ls(32799), ls(32964)
 
@@ -45,7 +45,7 @@ def search_trakt_lists(params):
 	__handle__ = int(argv[1])
 	mode = params.get('mode')
 	page = params.get('new_page', '1')
-	search_title = params.get('search_title', None) or kodi_utils.dialog.input('Fen')
+	search_title = params.get('search_title', None) or kodi_utils.dialog.input('B99')
 	if not search_title: return
 	lists, pages = trakt_api.trakt_search_lists(search_title, page)
 	kodi_utils.add_items(__handle__, list(_builder()))
@@ -138,7 +138,7 @@ def build_trakt_list(params):
 			kodi_utils.add_dir({'mode': 'build_navigate_to_page', 'media_type': 'Media', 'user': user, 'slug': slug, 'current_page': page_no, 'total_pages': total_pages,
 							'transfer_mode': 'trakt.list.build_trakt_list', 'list_type': list_type}, jump2_str, __handle__, iconImage='item_jump.png', isFolder=False)
 		item_list = function({'list': [i['media_ids'] for i in process_list], 'id_type': 'trakt_dict'}).worker()
-		item_list.sort(key=lambda k: int(k[1].getProperty('fen_sort_order')))
+		item_list.sort(key=lambda k: int(k[1].getProperty('B99_sort_order')))
 		kodi_utils.add_items(__handle__, item_list)
 		if total_pages > page_no:
 			kodi_utils.add_dir({'mode': 'trakt.list.build_trakt_list', 'user': user, 'slug': slug, 'new_page': str(page_no + 1), 'new_letter': letter, 'list_type': list_type},

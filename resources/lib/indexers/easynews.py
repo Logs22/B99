@@ -7,8 +7,8 @@ from modules.utils import clean_file_name
 
 ls = kodi_utils.local_string
 build_url = kodi_utils.build_url
-default_easynews_icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/easynews.png')
-fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+default_easynews_icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/easynews.png')
+fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 
 EasyNews = import_easynews()
 
@@ -53,8 +53,8 @@ def resolve_easynews(params):
 	url_dl = params['url_dl']
 	resolved_link = EasyNews.resolve_easynews(url_dl)
 	if params.get('play', 'false') != 'true' : return resolved_link
-	from modules.player import FenPlayer
-	FenPlayer().run(resolved_link, 'video')
+	from modules.player import B99Player
+	B99Player().run(resolved_link, 'video')
 
 def account_info(params):
 	from datetime import datetime

@@ -17,7 +17,7 @@
                 <width>60</width>
                 <height>60</height>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture colordiffuse="B3CCCCCC">common/ezra.png</texture>
+                <texture colordiffuse="B3CCCCCC">common/B99.png</texture>
             </control>
             <control type="group">
                 <left>70</left>
@@ -26,7 +26,7 @@
                     <width max="1160">auto</width>
                     <height>20</height>
                     <font>font10</font>
-                    <label>[COLOR B3CCCCCC][B]$ADDON[plugin.video.ezra 33061][/B][/COLOR]</label>
+                    <label>[COLOR B3CCCCCC][B]$ADDON[plugin.video.B99 33061][/B][/COLOR]</label>
                 </control>
             </control>
         </control>

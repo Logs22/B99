@@ -12,8 +12,8 @@ from modules.utils import clean_file_name, clean_title, normalize, jsondate_to_d
 ls = kodi_utils.local_string
 make_listitem = kodi_utils.make_listitem
 build_url = kodi_utils.build_url
-default_rd_icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/realdebrid.png')
-fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+default_rd_icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/realdebrid.png')
+fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 folder_str, file_str, delete_str, down_str = ls(32742).upper(), ls(32743).upper(), ls(32785), ls(32747)
 extensions = supported_video_extensions()
 RealDebrid = RealDebridAPI()
@@ -166,8 +166,8 @@ def resolve_rd(params):
 	url = params['url']
 	resolved_link = RealDebrid.unrestrict_link(url)
 	if params.get('play', 'false') != 'true' : return resolved_link
-	from modules.player import FenPlayer
-	FenPlayer().run(resolved_link, 'video')
+	from modules.player import B99Player
+	B99Player().run(resolved_link, 'video')
 
 def rd_account_info():
 	from datetime import datetime

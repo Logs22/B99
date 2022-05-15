@@ -9,9 +9,9 @@ ls = kodi_utils.local_string
 build_url = kodi_utils.build_url
 make_listitem = kodi_utils.make_listitem
 urlencode = kodi_utils.urlencode
-icon_directory = 'special://home/addons/script.ezart/resources/media/%s'
-default_icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/discover.png')
-fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+icon_directory = 'special://home/addons/script.B99art/resources/media/%s'
+default_icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/discover.png')
+fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 listitem_position = {'similar': 0, 'recommended': 0, 'year_start': 3, 'year_end': 4, 'include_genres': 5, 'exclude_genres': 6, 'include_keywords': 7, 'exclude_keywords': 8,
 'language': 9, 'region': 10, 'network': 10, 'companies': 11, 'rating': 11, 'certification': 12, 'rating_votes': 12, 'rating_movie': 13, 'sort_by': 13,
 'rating_votes_movie': 14, 'cast': 15, 'sort_by_movie': 16, 'adult': 17}
@@ -21,7 +21,7 @@ class Discover:
 		self.view = 'view.main'
 		self.media_type = params.get('media_type', None)
 		self.key = params.get('key', None)
-		if self.media_type: self.window_id = 'FEN_%s_discover_params' % self.media_type.upper()
+		if self.media_type: self.window_id = 'B99_%s_discover_params' % self.media_type.upper()
 		else: self.window_id = ''
 		try: self.discover_params = json.loads(kodi_utils.get_property(self.window_id))
 		except: self.discover_params = {}
@@ -108,7 +108,7 @@ class Discover:
 			if year: rootname = '%s (%s)' % (title, year)
 			else: rootname = title
 			if item.get('poster_path'): icon = 'https://image.tmdb.org/t/p/w780%s' % item['poster_path']
-			else: icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/box_office.png')
+			else: icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/box_office.png')
 			append({'line1': rootname, 'line2': item['overview'], 'icon': icon, 'rootname': rootname, 'tmdb_id': str(item['id'])})
 		heading = self.heading_base % ('%s %s' % (ls(32193), ls(32228)))
 		kwargs = {'items': json.dumps(choice_list), 'heading': heading, 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'true'}
@@ -297,7 +297,7 @@ class Discover:
 				known_for_list = [i for i in known_for_list if not i == 'NA']
 				known_for = ', '.join(known_for_list) if known_for_list else ''
 				if item.get('profile_path'): icon = 'https://image.tmdb.org/t/p/h632/%s' % item['profile_path']
-				else: icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/genre_family.png')
+				else: icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/genre_family.png')
 				append({'line1': name, 'line2': known_for, 'icon': icon, 'name': name, 'id': item['id']})
 			heading = self.heading_base % ls(32664)
 			kwargs = {'items': json.dumps(actor_list), 'heading': heading, 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'true'}
@@ -425,7 +425,7 @@ class Discover:
 				except: pass
 		__handle__ = int(argv[1])
 		media_type = media_type if media_type else self.media_type
-		string = 'fen_discover_%s_%%' % media_type
+		string = 'B99_discover_%s_%%' % media_type
 		dbcon = database.connect(kodi_utils.maincache_db, timeout=40.0, isolation_level=None)
 		dbcur = dbcon.cursor()
 		dbcur.execute('''PRAGMA synchronous = OFF''')
@@ -442,7 +442,7 @@ class Discover:
 		self._end_directory()
 
 	def help(self):
-		text_file = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/resources/text/tips/135. Fen Discover.txt')
+		text_file = kodi_utils.translate_path('special://home/addons/plugin.video.B99/resources/text/tips/135. B99 Discover.txt')
 		return kodi_utils.show_text(self.heading_base % ls(32487), file=text_file)
 
 	def _set_default_params(self, media_type):
@@ -523,7 +523,7 @@ class Discover:
 		kodi_utils.set_view_mode(self.view, '')
 
 	def _build_url(self, query):
-		return ''.join(['plugin://plugin.video.ezra/?', urlencode(query)])
+		return ''.join(['plugin://plugin.video.B99/?', urlencode(query)])
 
 	def _selection_dialog(self, dialog_list, function_list, string):
 		list_items = [{'line1': item, 'icon': default_icon} for item in dialog_list]
@@ -631,7 +631,7 @@ class Discover:
 def set_history(media_type, name, query):
 	from caches.main_cache import main_cache
 	from datetime import timedelta
-	string = 'fen_discover_%s_%s' % (media_type, query)
+	string = 'B99_discover_%s_%s' % (media_type, query)
 	cache = main_cache.get(string)
 	if cache: return
 	if media_type == 'movie':

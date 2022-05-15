@@ -10,8 +10,8 @@ from modules.utils import clean_file_name, normalize
 ls = kodi_utils.local_string
 build_url = kodi_utils.build_url
 make_listitem = kodi_utils.make_listitem
-default_ad_icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/alldebrid.png')
-fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+default_ad_icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/alldebrid.png')
+fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 folder_str, file_str, archive_str, down_str = ls(32742).upper(), ls(32743).upper(), ls(32982), ls(32747)
 extensions = supported_video_extensions()
 AllDebrid = AllDebridAPI()
@@ -71,8 +71,8 @@ def resolve_ad(params):
 	url = params['url']
 	resolved_link = AllDebrid.unrestrict_link(url)
 	if params.get('play', 'false') != 'true' : return resolved_link
-	from modules.player import FenPlayer
-	FenPlayer().run(resolved_link, 'video')
+	from modules.player import B99Player
+	B99Player().run(resolved_link, 'video')
 
 def ad_account_info():
 	from datetime import datetime

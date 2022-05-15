@@ -40,7 +40,7 @@
                     <align>right</align>
                     <aligny>top</aligny>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="B3CCCCCC">common/ezra.png</texture>
+                    <texture colordiffuse="B3CCCCCC">common/B99.png</texture>
                 </control>
                 <control type="textbox">
                     <top>50</top>

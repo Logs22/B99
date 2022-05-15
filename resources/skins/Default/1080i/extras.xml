@@ -15,7 +15,7 @@
                 <animation effect="fade" start="100" end="20" time="1000" tween="sine">WindowOpen</animation>
             </control>
         </control>
-        <!-- Fen Logo and Tips-->
+        <!-- B99 Logo and Tips-->
         <control type="group">
             <animation effect="fade" start="0" end="100" delay="400" time="500">WindowOpen</animation>
             <left>5</left>
@@ -24,7 +24,7 @@
                 <width>60</width>
                 <height>60</height>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture>common/ezra.png</texture>
+                <texture>common/B99.png</texture>
             </control>
             <control type="group">
                 <animation effect="fade" start="0" end="100" delay="400" time="500">WindowOpen</animation>
@@ -45,7 +45,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>[I]$ADDON[plugin.video.ezra 32049][/I]</label>
+                    <label>[I]$ADDON[plugin.video.B99 32049][/I]</label>
                     <visible>Control.HasFocus(2057) | Control.HasFocus(2058)</visible>
                 </control>
                 <control type="label">
@@ -55,7 +55,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>right</align>
                     <aligny>top</aligny>
-                    <label>[I]$ADDON[plugin.video.ezra 32136][/I]</label>
+                    <label>[I]$ADDON[plugin.video.B99 32136][/I]</label>
                     <visible>Control.HasFocus(10) + String.IsEqual(Window.Property(tikiskins.extras.media_type),movie)</visible>
                 </control>
             </control>
@@ -263,7 +263,7 @@
                             <onright>11</onright>
                             <onup>2062</onup>
                             <ondown>14</ondown>
-                            <label>$ADDON[plugin.video.ezra 32174]</label>
+                            <label>$ADDON[plugin.video.B99 32174]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -282,7 +282,7 @@
                             <onright>11</onright>
                             <onup>2062</onup>
                             <ondown>14</ondown>
-                            <label>$ADDON[plugin.video.ezra 32838]</label>
+                            <label>$ADDON[plugin.video.B99 32838]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -302,7 +302,7 @@
                             <onright>12</onright>
                             <onup>2062</onup>
                             <ondown>15</ondown>
-                            <label>$ADDON[plugin.video.ezra 32606]</label>
+                            <label>$ADDON[plugin.video.B99 32606]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -321,7 +321,7 @@
                             <onright>13</onright>
                             <onup>2062</onup>
                             <ondown>16</ondown>
-                            <label>$ADDON[plugin.video.ezra 32092]</label>
+                            <label>$ADDON[plugin.video.B99 32092]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -340,7 +340,7 @@
                             <onright>10</onright>
                             <onup>2062</onup>
                             <ondown>17</ondown>
-                            <label>$ADDON[plugin.video.ezra 32798]</label>
+                            <label>$ADDON[plugin.video.B99 32798]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -362,7 +362,7 @@
                             <onright>15</onright>
                             <onup>10</onup>
                             <ondown>50</ondown>
-                            <label>$ADDON[plugin.video.ezra 32605]</label>
+                            <label>$ADDON[plugin.video.B99 32605]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -381,7 +381,7 @@
                             <onright>16</onright>
                             <onup>11</onup>
                             <ondown>50</ondown>
-                            <label>$ADDON[plugin.video.ezra 32470]</label>
+                            <label>$ADDON[plugin.video.B99 32470]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -400,7 +400,7 @@
                             <onright>17</onright>
                             <onup>12</onup>
                             <ondown>50</ondown>
-                            <label>$ADDON[plugin.video.ezra 32627]</label>
+                            <label>$ADDON[plugin.video.B99 32627]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -420,7 +420,7 @@
                             <onright>17</onright>
                             <onup>12</onup>
                             <ondown>50</ondown>
-                            <label>$ADDON[plugin.video.ezra 32613]</label>
+                            <label>$ADDON[plugin.video.B99 32613]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -440,7 +440,7 @@
                             <onup>13</onup>
                             <onright>14</onright>
                             <ondown>50</ondown>
-                            <label>$ADDON[plugin.video.ezra 32037]</label>
+                            <label>$ADDON[plugin.video.B99 32037]</label>
                             <font>font14</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -463,7 +463,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>left</align>
                         <aligny>bottom</aligny>
-                        <label>[B]$ADDON[plugin.video.ezra 32842][/B]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32842][/B]</label>
                     </control>
                     <control type="button" id="50">
                         <top>40</top>
@@ -511,7 +511,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32664][/B] $INFO[Window.Property(tikiskins.extras.cast.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32664][/B] $INFO[Window.Property(tikiskins.extras.cast.number)]</label>
                         <visible>!Control.HasFocus(2050)</visible>
                     </control>
                     <control type="label">
@@ -519,7 +519,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32664][/B]  |  [I]$INFO[Container(2050).ListItem.Property(tikiskins.extras.name)]$INFO[Container(2050).ListItem.Property(tikiskins.extras.role), as ][/I]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32664][/B]  |  [I]$INFO[Container(2050).ListItem.Property(tikiskins.extras.name)]$INFO[Container(2050).ListItem.Property(tikiskins.extras.role), as ][/I]</label>
                         <visible>Control.HasFocus(2050)</visible>
                     </control>
                     <control type="panel" id="2050">
@@ -664,7 +664,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32503][/B] $INFO[Window.Property(tikiskins.extras.recommended.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32503][/B] $INFO[Window.Property(tikiskins.extras.recommended.number)]</label>
                         <visible>!Control.HasFocus(2051)</visible>
                     </control>
                     <control type="label">
@@ -672,7 +672,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32503][/B]  |  [I]$INFO[Container(2051).ListItem.Property(tikiskins.extras.name)] • $INFO[Container(2051).ListItem.Property(tikiskins.extras.release_date)] • $INFO[Container(2051).ListItem.Property(tikiskins.extras.vote_average)][/I]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32503][/B]  |  [I]$INFO[Container(2051).ListItem.Property(tikiskins.extras.name)] • $INFO[Container(2051).ListItem.Property(tikiskins.extras.release_date)] • $INFO[Container(2051).ListItem.Property(tikiskins.extras.vote_average)][/I]</label>
                         <visible>Control.HasFocus(2051)</visible>
                     </control>
                     <control type="panel" id="2051">
@@ -795,7 +795,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>left</align>
                         <aligny>bottom</aligny>
-                        <label>[B]$ADDON[plugin.video.ezra 32607][/B] $INFO[Window.Property(tikiskins.extras.imdb_reviews.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32607][/B] $INFO[Window.Property(tikiskins.extras.imdb_reviews.number)]</label>
                     </control>
                     <control type="panel" id="2052">
                         <pagecontrol>4052</pagecontrol>
@@ -891,7 +891,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>left</align>
                         <aligny>bottom</aligny>
-                        <label>[B]$ADDON[plugin.video.ezra 32984][/B] $INFO[Window.Property(tikiskins.extras.imdb_trivia.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32984][/B] $INFO[Window.Property(tikiskins.extras.imdb_trivia.number)]</label>
                     </control>
                     <control type="panel" id="2053">
                         <pagecontrol>4053</pagecontrol>
@@ -987,7 +987,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>left</align>
                         <aligny>bottom</aligny>
-                        <label>[B]$ADDON[plugin.video.ezra 32986][/B] $INFO[Window.Property(tikiskins.extras.imdb_blunders.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32986][/B] $INFO[Window.Property(tikiskins.extras.imdb_blunders.number)]</label>
                     </control>
                     <control type="panel" id="2054">
                         <pagecontrol>4054</pagecontrol>
@@ -1083,7 +1083,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>left</align>
                         <aligny>bottom</aligny>
-                        <label>[B]$ADDON[plugin.video.ezra 32989][/B] $INFO[Window.Property(tikiskins.extras.imdb_parentsguide.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32989][/B] $INFO[Window.Property(tikiskins.extras.imdb_parentsguide.number)]</label>
                     </control>
                     <control type="panel" id="2055">
                         <top>45</top>
@@ -1185,7 +1185,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 33032][/B] $INFO[Window.Property(tikiskins.extras.imdb_videos.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 33032][/B] $INFO[Window.Property(tikiskins.extras.imdb_videos.number)]</label>
                     </control>
                     <control type="panel" id="2056">
                         <pagecontrol>4056</pagecontrol>
@@ -1305,7 +1305,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>left</align>
                         <aligny>bottom</aligny>
-                        <label>[B]$ADDON[plugin.video.ezra 32616][/B] $INFO[Window.Property(tikiskins.extras.tmdb_artwork.posters.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32616][/B] $INFO[Window.Property(tikiskins.extras.tmdb_artwork.posters.number)]</label>
                     </control>
                     <control type="panel" id="2057">
                         <pagecontrol>4057</pagecontrol>
@@ -1427,7 +1427,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>left</align>
                         <aligny>bottom</aligny>
-                        <label>[B]$ADDON[plugin.video.ezra 32617][/B] $INFO[Window.Property(tikiskins.extras.tmdb_artwork.backdrops.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32617][/B] $INFO[Window.Property(tikiskins.extras.tmdb_artwork.backdrops.number)]</label>
                     </control>
                     <control type="panel" id="2058">
                         <pagecontrol>4058</pagecontrol>
@@ -1546,7 +1546,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32612] $INFO[Window.Property(tikiskins.extras.year)][/B] $INFO[Window.Property(tikiskins.extras.more_from_year.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32612] $INFO[Window.Property(tikiskins.extras.year)][/B] $INFO[Window.Property(tikiskins.extras.more_from_year.number)]</label>
                         <visible>!Control.HasFocus(2059)</visible>
                     </control>
                     <control type="label">
@@ -1554,7 +1554,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32612] $INFO[Window.Property(tikiskins.extras.year)][/B]  |  [I]$INFO[Container(2059).ListItem.Property(tikiskins.extras.name)] • $INFO[Container(2059).ListItem.Property(tikiskins.extras.release_date)] • $INFO[Container(2059).ListItem.Property(tikiskins.extras.vote_average)][/I]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32612] $INFO[Window.Property(tikiskins.extras.year)][/B]  |  [I]$INFO[Container(2059).ListItem.Property(tikiskins.extras.name)] • $INFO[Container(2059).ListItem.Property(tikiskins.extras.release_date)] • $INFO[Container(2059).ListItem.Property(tikiskins.extras.vote_average)][/I]</label>
                         <visible>Control.HasFocus(2059)</visible>
                     </control>
                     <control type="panel" id="2059">
@@ -1675,7 +1675,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32612] $INFO[Window.Property(tikiskins.extras.genre)][/B] $INFO[Window.Property(tikiskins.extras.more_from_genres.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32612] $INFO[Window.Property(tikiskins.extras.genre)][/B] $INFO[Window.Property(tikiskins.extras.more_from_genres.number)]</label>
                         <visible>!Control.HasFocus(2060)</visible>
                     </control>
                     <control type="label">
@@ -1683,7 +1683,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32612] $INFO[Window.Property(tikiskins.extras.genre)][/B]  |  [I]$INFO[Container(2060).ListItem.Property(tikiskins.extras.name)] • $INFO[Container(2060).ListItem.Property(tikiskins.extras.release_date)] • $INFO[Container(2060).ListItem.Property(tikiskins.extras.vote_average)][/I]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32612] $INFO[Window.Property(tikiskins.extras.genre)][/B]  |  [I]$INFO[Container(2060).ListItem.Property(tikiskins.extras.name)] • $INFO[Container(2060).ListItem.Property(tikiskins.extras.release_date)] • $INFO[Container(2060).ListItem.Property(tikiskins.extras.vote_average)][/I]</label>
                         <visible>Control.HasFocus(2060)</visible>
                     </control>
                     <control type="panel" id="2060">
@@ -1804,7 +1804,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32612] $INFO[Window.Property(tikiskins.extras.network)][/B] $INFO[Window.Property(tikiskins.extras.more_from_networks.number)]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32612] $INFO[Window.Property(tikiskins.extras.network)][/B] $INFO[Window.Property(tikiskins.extras.more_from_networks.number)]</label>
                         <visible>!Control.HasFocus(2061)</visible>
                     </control>
                     <control type="label">
@@ -1812,7 +1812,7 @@
                         <height>20</height>
                         <font>font14</font>
                         <textcolor>FFCCCCCC</textcolor>
-                        <label>[B]$ADDON[plugin.video.ezra 32612] $INFO[Window.Property(tikiskins.extras.network)][/B]  |  [I]$INFO[Container(2061).ListItem.Property(tikiskins.extras.name)] • $INFO[Container(2061).ListItem.Property(tikiskins.extras.release_date)] • $INFO[Container(2061).ListItem.Property(tikiskins.extras.vote_average)][/I]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32612] $INFO[Window.Property(tikiskins.extras.network)][/B]  |  [I]$INFO[Container(2061).ListItem.Property(tikiskins.extras.name)] • $INFO[Container(2061).ListItem.Property(tikiskins.extras.release_date)] • $INFO[Container(2061).ListItem.Property(tikiskins.extras.vote_average)][/I]</label>
                         <visible>Control.HasFocus(2061)</visible>
                     </control>
                     <control type="panel" id="2061">

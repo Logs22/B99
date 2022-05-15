@@ -7,8 +7,8 @@ from modules import kodi_utils
 ls = kodi_utils.local_string
 build_url = kodi_utils.build_url
 make_listitem = kodi_utils.make_listitem
-default_imdb_icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/imdb.png')
-fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+default_imdb_icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/imdb.png')
+fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 
 def imdb_build_user_lists(media_type):
 	def _builder():

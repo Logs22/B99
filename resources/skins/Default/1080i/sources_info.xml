@@ -35,7 +35,7 @@
                     <align>left</align>
                     <aligny>top</aligny>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="FFCCCCCC">common/ezra.png</texture>
+                    <texture colordiffuse="FFCCCCCC">common/B99.png</texture>
                 </control>
             </control>
             <control type="image">
@@ -68,7 +68,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.ezra 32583]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.provider)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.B99 32583]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.provider)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>50</top>
@@ -78,7 +78,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.ezra 33031]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.source_type)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.B99 33031]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.source_type)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>100</top>
@@ -88,7 +88,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.ezra 32100]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.source_site)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.B99 32100]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.source_site)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>150</top>
@@ -98,7 +98,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.ezra 32241]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.quality)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.B99 32241]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.quality)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>200</top>
@@ -108,7 +108,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.ezra 32584]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.size_label)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.B99 32584]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.size_label)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>250</top>
@@ -118,7 +118,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.ezra 32605]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.extra_info)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.B99 32605]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.extra_info)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>300</top>
@@ -128,7 +128,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.ezra 32228]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.name)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.B99 32228]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.name)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>350</top>
@@ -138,7 +138,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.ezra 32106]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.hash)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(tikiskins.results.info.highlight)]][B]$ADDON[plugin.video.B99 32106]: [/B][/COLOR]$INFO[Window.Property(tikiskins.results.info.hash)][/UPPERCASE]</label>
                 </control>
             </control>
         </control>

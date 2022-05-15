@@ -16,46 +16,46 @@ get_property, set_property, clear_property, get_visibility = kodi_utils.get_prop
 
 class InitializeDatabases:
 	def run(self):
-		logger('FEN', 'InitializeDatabases Service Starting')
+		logger('B99', 'InitializeDatabases Service Starting')
 		check_databases()
-		return logger('FEN', 'InitializeDatabases Service Finished')
+		return logger('B99', 'InitializeDatabases Service Finished')
 
 class CheckSettingsFile:
 	def run(self):
-		logger('FEN', 'CheckSettingsFile Service Starting')
-		clear_property('fen_settings')
-		profile_dir = translate_path('special://profile/addon_data/plugin.video.ezra/')
+		logger('B99', 'CheckSettingsFile Service Starting')
+		clear_property('B99_settings')
+		profile_dir = translate_path('special://profile/addon_data/plugin.video.B99/')
 		if not path_exists(profile_dir): kodi_utils.make_directorys(profile_dir)
-		settings_xml = translate_path('special://profile/addon_data/plugin.video.ezra/settings.xml')
+		settings_xml = translate_path('special://profile/addon_data/plugin.video.B99/settings.xml')
 		if not path_exists(settings_xml):
 			__addon__ = kodi_utils.addon()
 			addon_version = __addon__.getAddonInfo('version')
 			__addon__.setSetting('version_number', addon_version)
 			monitor.waitForAbort(0.5)
 		make_settings_dict()
-		set_property('fen_kodi_menu_cache', get_setting('kodi_menu_cache'))
-		return logger('FEN', 'CheckSettingsFile Service Finished')
+		set_property('B99_kodi_menu_cache', get_setting('kodi_menu_cache'))
+		return logger('B99', 'CheckSettingsFile Service Finished')
 
 class SyncMyAccounts:
 	def run(self):
-		logger('FEN', 'SyncMyAccounts Service Starting')
+		logger('B99', 'SyncMyAccounts Service Starting')
 		sync_MyAccounts(silent=True)
-		return logger('FEN', 'SyncMyAccounts Service Finished')
+		return logger('B99', 'SyncMyAccounts Service Finished')
 
 class ClearSubs:
 	def run(self):
-		logger('FEN', 'Clear Subtitles Service Starting')
+		logger('B99', 'Clear Subtitles Service Starting')
 		sub_formats = ('.srt', '.ssa', '.smi', '.sub', '.idx')
 		subtitle_path = 'special://temp/%s'
 		files = kodi_utils.list_dirs(translate_path('special://temp/'))[1]
 		for i in files:
-			if i.startswith('FENSubs_') or i.endswith(sub_formats): kodi_utils.delete_file(translate_path(subtitle_path % i))
-		return logger('FEN', 'Clear Subtitles Service Finished')
+			if i.startswith('B99Subs_') or i.endswith(sub_formats): kodi_utils.delete_file(translate_path(subtitle_path % i))
+		return logger('B99', 'Clear Subtitles Service Finished')
 
 class ReuseLanguageInvokerCheck:
 	def run(self):
-		logger('FEN', 'ReuseLanguageInvokerCheck Service Starting')
-		addon_xml = translate_path('special://home/addons/plugin.video.ezra/addon.xml')
+		logger('B99', 'ReuseLanguageInvokerCheck Service Starting')
+		addon_xml = translate_path('special://home/addons/plugin.video.B99/addon.xml')
 		tree = ET.parse(addon_xml)
 		root = tree.getroot()
 		current_addon_setting = get_setting('reuse_language_invoker', 'true')
@@ -66,19 +66,19 @@ class ReuseLanguageInvokerCheck:
 			tree.write(addon_xml)
 			break
 		if refresh and kodi_utils.confirm_dialog(text=text): kodi_utils.execute_builtin('LoadProfile(%s)' % kodi_utils.get_infolabel('system.profilename'))
-		return logger('FEN', 'ReuseLanguageInvokerCheck Service Finished')
+		return logger('B99', 'ReuseLanguageInvokerCheck Service Finished')
 
 class ViewsSetWindowProperties:
 	def run(self):
-		logger('FEN', 'ViewsSetWindowProperties Service Starting')
+		logger('B99', 'ViewsSetWindowProperties Service Starting')
 		kodi_utils.set_view_properties()
-		return logger('FEN', 'ViewsSetWindowProperties Service Finished')
+		return logger('B99', 'ViewsSetWindowProperties Service Finished')
 
 class AutoRun:
 	def run(self):
-		logger('FEN', 'AutoRun Service Starting')
-		if settings.auto_start_fen(): kodi_utils.execute_builtin('RunAddon(plugin.video.ezra)')
-		return logger('FEN', 'AutoRun Service Finished')
+		logger('B99', 'AutoRun Service Starting')
+		if settings.auto_start_B99(): kodi_utils.execute_builtin('RunAddon(plugin.video.B99)')
+		return logger('B99', 'AutoRun Service Finished')
 
 class DatabaseMaintenance:
 	def run(self):
@@ -86,41 +86,41 @@ class DatabaseMaintenance:
 		current_time = self._get_timestamp(time)
 		due_clean = int(get_setting('database.maintenance.due', '0'))
 		if current_time >= due_clean:
-			logger('FEN', 'Database Maintenance Service Starting')
+			logger('B99', 'Database Maintenance Service Starting')
 			monitor.waitForAbort(10)
 			clean_databases(current_time, database_check=False, silent=True)
 			next_clean = str(int(self._get_timestamp(time + datetime.timedelta(days=3))))
 			set_setting('database.maintenance.due', next_clean)
-			return logger('FEN', 'Database Maintenance Service Finished')
+			return logger('B99', 'Database Maintenance Service Finished')
 
 	def _get_timestamp(self, date_time):
 		return int(time.mktime(date_time.timetuple()))
 
 class TraktMonitor:
 	def run(self):
-		logger('FEN', 'TraktMonitor Service Starting')
+		logger('B99', 'TraktMonitor Service Starting')
 		trakt_service_string = 'TraktMonitor Service Update %s - %s'
 		update_string = 'Next Update in %s minutes...'
-		if not kodi_utils.get_property('fen_traktmonitor_first_run') == 'true':
+		if not kodi_utils.get_property('B99_traktmonitor_first_run') == 'true':
 			clear_trakt_list_contents_data('user_lists')
-			kodi_utils.set_property('fen_traktmonitor_first_run', 'true')
+			kodi_utils.set_property('B99_traktmonitor_first_run', 'true')
 		while not monitor.abortRequested():
-			while is_playing() or get_visibility('Container().isUpdating') or get_property('fen_pause_services') == 'true': monitor.waitForAbort(10)
-			if not kodi_utils.get_property('fen_traktmonitor_first_run') == 'true': monitor.waitForAbort(5)
+			while is_playing() or get_visibility('Container().isUpdating') or get_property('B99_pause_services') == 'true': monitor.waitForAbort(10)
+			if not kodi_utils.get_property('B99_traktmonitor_first_run') == 'true': monitor.waitForAbort(5)
 			value, interval = settings.trakt_sync_interval()
 			next_update_string = update_string % value
 			status = trakt_sync_activities()
 			if status == 'success':
-				logger('FEN', trakt_service_string % ('FEN TraktMonitor - Success', 'Trakt Update Performed'))
+				logger('B99', trakt_service_string % ('B99 TraktMonitor - Success', 'Trakt Update Performed'))
 				if settings.trakt_sync_refresh_widgets():
 					kodi_utils.widget_refresh()
-					logger('FEN', trakt_service_string % ('FEN TraktMonitor - Widgets Refresh', 'Setting Activated. Widget Refresh Performed'))
-				else: logger('FEN', trakt_service_string % ('FEN TraktMonitor - Widgets Refresh', 'Setting Disabled. Skipping Widget Refresh'))
+					logger('B99', trakt_service_string % ('B99 TraktMonitor - Widgets Refresh', 'Setting Activated. Widget Refresh Performed'))
+				else: logger('B99', trakt_service_string % ('B99 TraktMonitor - Widgets Refresh', 'Setting Disabled. Skipping Widget Refresh'))
 			elif status == 'no account':
-				logger('FEN', trakt_service_string % ('FEN TraktMonitor - Aborted. No Trakt Account Active', next_update_string))
+				logger('B99', trakt_service_string % ('B99 TraktMonitor - Aborted. No Trakt Account Active', next_update_string))
 			elif status == 'failed':
-				logger('FEN', trakt_service_string % ('FEN TraktMonitor - Failed. Error from Trakt', next_update_string))
+				logger('B99', trakt_service_string % ('B99 TraktMonitor - Failed. Error from Trakt', next_update_string))
 			else:# 'not needed'
-				logger('FEN', trakt_service_string % ('FEN TraktMonitor - Success. No Changes Needed', next_update_string))
+				logger('B99', trakt_service_string % ('B99 TraktMonitor - Success. No Changes Needed', next_update_string))
 			monitor.waitForAbort(interval)
-		return logger('FEN', 'TraktMonitor Service Finished')
+		return logger('B99', 'TraktMonitor Service Finished')

@@ -8,10 +8,10 @@ from apis.imdb_api import imdb_images, people_get_imdb_id, imdb_people_images
 from modules.kodi_utils import translate_path, notification, set_property, make_listitem, list_dirs, delete_file
 # from modules.kodi_utils import logger
 
-icon_directory = translate_path('special://home/addons/script.ezart/resources/media')
+icon_directory = translate_path('special://home/addons/script.B99art/resources/media')
 
-icon = translate_path('special://home/addons/plugin.video.ezra/icon.png')
-fanart = translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+icon = translate_path('special://home/addons/plugin.video.B99/icon.png')
+fanart = translate_path('special://home/addons/plugin.video.B99/fanart.png')
 tmdb_image_base = 'https://image.tmdb.org/t/p/%s%s'
 
 class Images():
@@ -204,5 +204,5 @@ class Images():
 		folder_path = self.params['folder_path']
 		delete_file(thumb_url)
 		delete_file(image_url)
-		set_property('fen.home_window.delete_image_finished', 'true')
+		set_property('B99.home_window.delete_image_finished', 'true')
 

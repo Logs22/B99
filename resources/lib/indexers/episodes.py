@@ -20,7 +20,7 @@ date_difference_function, make_day_function, title_key_function, get_datetime_fu
 get_resumetime, get_watched_status, get_watched_info, get_bookmarks = ws.get_resumetime, ws.get_watched_status_episode, ws.get_watched_info_tv, ws.get_bookmarks
 string, watched_str, unwatched_str, extras_str, options_str = str, ls(32642), ls(32643), ls(32645), ls(32646)
 upper, clearprog_str, browse_str, browse_seas_str, nextep_manager_str = string.upper, ls(32651), ls(32652), ls(32544), ls(32599)
-poster_empty, fanart_empty = tp('special://home/addons/script.ezart/resources/media/box_office.png'), tp('special://home/addons/plugin.video.ezra/fanart.png')
+poster_empty, fanart_empty = tp('special://home/addons/script.B99art/resources/media/box_office.png'), tp('special://home/addons/plugin.video.B99/fanart.png')
 run_plugin, container_update, unaired_label = 'RunPlugin(%s)', 'Container.Update(%s)', '[COLOR red][I]%s[/I][/COLOR]'
 
 def build_episode_list(params):
@@ -61,7 +61,7 @@ def build_episode_list(params):
 						clearprog_params = build_url({'mode': 'watched_unwatched_erase_bookmark', 'media_type': 'episode', 'tmdb_id': tmdb_id,
 													'season': season, 'episode': episode, 'refresh': 'true'})
 						cm_append((clearprog_str, run_plugin % clearprog_params))
-						set_property('fen_in_progress', 'true')
+						set_property('B99_in_progress', 'true')
 					if playcount:
 						if hide_watched: continue
 						unwatched_params = build_url({'mode': 'mark_as_watched_unwatched_episode', 'action': 'mark_as_unwatched', 'tmdb_id': tmdb_id,
@@ -81,14 +81,14 @@ def build_episode_list(params):
 				listitem.setInfo('video', remove_meta_keys(item, dict_removals))
 				set_property('resumetime', resumetime)
 				if is_widget:
-					set_property('fen_widget', 'true')
-					set_property('fen_playcount', string(playcount))
-					set_property('fen_options_menu_params', options_params)
-					set_property('fen_extras_menu_params', extras_params)
-					set_property('fen_unwatched_params', unwatched_params)
-					set_property('fen_watched_params', watched_params)
-					set_property('fen_clearprog_params', clearprog_params)
-				else: set_property('fen_widget', 'false')
+					set_property('B99_widget', 'true')
+					set_property('B99_playcount', string(playcount))
+					set_property('B99_options_menu_params', options_params)
+					set_property('B99_extras_menu_params', extras_params)
+					set_property('B99_unwatched_params', unwatched_params)
+					set_property('B99_watched_params', watched_params)
+					set_property('B99_clearprog_params', clearprog_params)
+				else: set_property('B99_widget', 'false')
 				yield (url_params, listitem, False)
 			except: pass
 	__handle__ = int(argv[1])
@@ -108,7 +108,7 @@ def build_episode_list(params):
 	cast, mpaa, duration = meta_get('cast', []), meta_get('mpaa'), meta_get('duration')
 	trailer, genre, studio = string(meta_get('trailer')), meta_get('genre'), meta_get('studio')
 	tvshow_plot = meta_get('plot')
-	watched_title = 'Trakt' if watched_indicators == 1 else 'Fen'
+	watched_title = 'Trakt' if watched_indicators == 1 else 'B99'
 	if all_episodes:
 		episodes_data = all_episodes_meta_function(meta, meta_user_info, Thread)
 		if not show_specials(): episodes_data = [i for i in episodes_data if not i['season'] == 0]
@@ -123,33 +123,33 @@ def build_single_episode(list_type, data):
 	def _sort_results(items):
 		if list_type_starts_with('next_episode'):
 			def func(function):
-				if sort_key == 'fen_name': return title_key_function(function, ignore_articles_setting)
-				elif sort_key == 'fen_last_played': return jsondate_to_datetime_function(function, resformat)
+				if sort_key == 'B99_name': return title_key_function(function, ignore_articles_setting)
+				elif sort_key == 'B99_last_played': return jsondate_to_datetime_function(function, resformat)
 				else: return function
 			sort_key = nextep_settings['sort_key']
 			sort_direction = nextep_settings['sort_direction']
 			if nextep_settings['sort_airing_today_to_top']:
 				airing_today = [i for i in items
-								if date_difference_function(current_date, jsondate_to_datetime_function(i[1].getProperty('fen_first_aired'), '%Y-%m-%d').date(), 0)]
-				airing_today = sorted(airing_today, key=lambda i: i[1].getProperty('fen_first_aired'))
+								if date_difference_function(current_date, jsondate_to_datetime_function(i[1].getProperty('B99_first_aired'), '%Y-%m-%d').date(), 0)]
+				airing_today = sorted(airing_today, key=lambda i: i[1].getProperty('B99_first_aired'))
 				remainder = [i for i in items if not i in airing_today]
 				remainder = sorted(remainder, key=lambda i: func(i[1].getProperty(sort_key)), reverse=sort_direction)
-				unaired = [i for i in remainder if i[1].getProperty('fen_unaired') == 'true']
+				unaired = [i for i in remainder if i[1].getProperty('B99_unaired') == 'true']
 				aired = [i for i in remainder if not i in unaired]
 				remainder = aired + unaired
 				items = airing_today + remainder
 			else:
 				items = sorted(items, key=lambda i: func(i[1].getProperty(sort_key)), reverse=sort_direction)
-				unaired = [i for i in items if i[1].getProperty('fen_unaired') == 'true']
+				unaired = [i for i in items if i[1].getProperty('B99_unaired') == 'true']
 				aired = [i for i in items if not i in unaired]
 				items = aired + unaired
 		else:
-			items.sort(key=lambda k: int(k[1].getProperty('fen_sort_order')))
+			items.sort(key=lambda k: int(k[1].getProperty('B99_sort_order')))
 			if list_type in ('trakt_calendar', 'trakt_recently_aired'):
 				if list_type == 'trakt_calendar': reverse = calendar_sort_order() == 0
 				else: reverse = True
-				items.sort(key=lambda k: int(k[1].getProperty('fen_sort_order')))
-				items = sorted(items, key=lambda i: i[1].getProperty('fen_first_aired'), reverse=reverse)
+				items.sort(key=lambda k: int(k[1].getProperty('B99_sort_order')))
+				items = sorted(items, key=lambda i: i[1].getProperty('B99_first_aired'), reverse=reverse)
 		return items
 	def _process(item_position, ep_data):
 		try:
@@ -189,10 +189,10 @@ def build_single_episode(list_type, data):
 					if episode_date and new_season and not date_difference_function(current_date, episode_date, 7): return
 				elif not show_unaired: return
 				unaired = True
-				set_property('fen_unaired', 'true')
+				set_property('B99_unaired', 'true')
 			else:
 				unaired = False
-				set_property('fen_unaired', 'false')
+				set_property('B99_unaired', 'false')
 			playcount, overlay = get_watched_status(watched_info, string(tmdb_id), season, episode)
 			resumetime = get_resumetime(bookmarks, tmdb_id, season, episode)
 			if display_title == 0: title_string = ''.join([title, ': '])
@@ -242,7 +242,7 @@ def build_single_episode(list_type, data):
 					clearprog_params = build_url({'mode': 'watched_unwatched_erase_bookmark', 'media_type': 'episode', 'tmdb_id': tmdb_id,
 												'season': season, 'episode': episode, 'refresh': 'true'})
 					cm_append((clearprog_str, run_plugin % clearprog_params))
-					set_property('fen_in_progress', 'true')
+					set_property('B99_in_progress', 'true')
 				if playcount:
 					if hide_watched: return
 					unwatched_params = build_url({'mode': 'mark_as_watched_unwatched_episode', 'action': 'mark_as_unwatched', 'tmdb_id': tmdb_id,
@@ -261,24 +261,24 @@ def build_single_episode(list_type, data):
 			listitem.setCast(cast + item_get('guest_stars', []))
 			listitem.setUniqueIDs({'imdb': imdb_id, 'tmdb': string(tmdb_id), 'tvdb': string(tvdb_id)})
 			listitem.setInfo('video', remove_meta_keys(item, dict_removals))
-			set_property('fen_name', '%s - %sx%s' % (title, str_season_zfill2, str_episode_zfill2))
+			set_property('B99_name', '%s - %sx%s' % (title, str_season_zfill2, str_episode_zfill2))
 			set_property('resumetime', resumetime)
-			set_property('fen_first_aired', premiered)
+			set_property('B99_first_aired', premiered)
 			if list_type_starts_with('next_episode'):
 				last_played = ep_data_get('last_played', resinsert)
-				set_property('fen_last_played', last_played)
-			else: set_property('fen_sort_order', string(item_position))
+				set_property('B99_last_played', last_played)
+			else: set_property('B99_sort_order', string(item_position))
 			if is_widget:
-				set_property('fen_widget', 'true')
-				set_property('fen_playcount', string(playcount))
-				set_property('fen_browse_params', browse_params)
-				set_property('fen_browse_seas_params', browse_seas_params)
-				set_property('fen_options_menu_params', options_params)
-				set_property('fen_extras_menu_params', extras_params)
-				set_property('fen_unwatched_params', unwatched_params)
-				set_property('fen_watched_params', watched_params)
-				set_property('fen_clearprog_params', clearprog_params)
-			else: set_property('fen_widget', 'false')
+				set_property('B99_widget', 'true')
+				set_property('B99_playcount', string(playcount))
+				set_property('B99_browse_params', browse_params)
+				set_property('B99_browse_seas_params', browse_seas_params)
+				set_property('B99_options_menu_params', options_params)
+				set_property('B99_extras_menu_params', extras_params)
+				set_property('B99_unwatched_params', unwatched_params)
+				set_property('B99_watched_params', watched_params)
+				set_property('B99_clearprog_params', clearprog_params)
+			else: set_property('B99_widget', 'false')
 			append((url_params, listitem, False))
 		except: pass
 	__handle__ = int(argv[1])
@@ -290,7 +290,7 @@ def build_single_episode(list_type, data):
 	show_all_episodes = all_episodes in (1, 2)
 	poster_main, poster_backup, fanart_main, fanart_backup = art_keys
 	ignore_articles_setting = ignore_articles()
-	watched_title = 'Trakt' if watched_indicators == 1 else 'Fen'
+	watched_title = 'Trakt' if watched_indicators == 1 else 'B99'
 	if list_type_starts_with('next_episode'):
 		nextep_settings, nextep_disp_settings = nextep_content_settings(), nextep_display_settings()
 		nextep_unaired_color, nextep_unwatched_color = nextep_disp_settings['unaired_color'], nextep_disp_settings['unwatched_color']

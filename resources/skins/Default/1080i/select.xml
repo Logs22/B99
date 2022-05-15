@@ -35,7 +35,7 @@
                     <align>left</align>
                     <aligny>top</aligny>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="FFCCCCCC">common/ezra.png</texture>
+                    <texture colordiffuse="FFCCCCCC">common/B99.png</texture>
                 </control>
                 <control type="label">
                     <width max="1600">auto</width>
@@ -79,7 +79,7 @@
                         <height>500</height>
                         <width>500</width>
                         <aspectratio aligny="top">keep</aspectratio>
-                        <texture>common/ezra_large.png</texture>
+                        <texture>common/B99_large.png</texture>
                     </control>
                 </control>
             </control>
@@ -254,7 +254,7 @@
                     <ondown>11</ondown>
                     <onleft>2025</onleft>
                     <onright>2025</onright>
-                    <label>[B]$ADDON[plugin.video.ezra 32839][/B]</label>
+                    <label>[B]$ADDON[plugin.video.B99 32839][/B]</label>
                     <font>font14</font>
                     <textcolor>FFB7B4BB</textcolor>
                     <focusedcolor>$INFO[Window().Property(tikiskins.dialog.highlight)]</focusedcolor>
@@ -271,7 +271,7 @@
                     <ondown>10</ondown>
                     <onleft>2025</onleft>
                     <onright>2025</onright>
-                    <label>[B]$ADDON[plugin.video.ezra 32840][/B]</label>
+                    <label>[B]$ADDON[plugin.video.B99 32840][/B]</label>
                     <font>font14</font>
                     <textcolor>FFB7B4BB</textcolor>
                     <focusedcolor>$INFO[Window().Property(tikiskins.dialog.highlight)]</focusedcolor>

@@ -73,7 +73,7 @@ def set_sort_method(handle, method):
 	xbmcplugin.addSortMethod(handle, sort_method)
 
 def end_directory(handle, cacheToDisc=None):
-	if cacheToDisc == None: cacheToDisc = get_property('fen_kodi_menu_cache') == 'true'
+	if cacheToDisc == None: cacheToDisc = get_property('B99_kodi_menu_cache') == 'true'
 	xbmcplugin.endOfDirectory(handle, cacheToDisc=cacheToDisc)
 
 def set_resolvedurl(handle, item):
@@ -157,7 +157,7 @@ def container_content():
 	return get_infolabel('Container.Content')
 
 def external_browse():
-	return 'fen' not in get_infolabel('Container.PluginName')
+	return 'B99' not in get_infolabel('Container.PluginName')
 
 def widget_refresh():
 	return execute_builtin('UpdateLibrary(video,special://skin/foo)')
@@ -165,7 +165,7 @@ def widget_refresh():
 def container_refresh():
 	return execute_builtin('Container.Refresh')
 
-def ok_dialog(heading='Fen', text='', highlight='royalblue', ok_label=local_string(32839), top_space=False):
+def ok_dialog(heading='B99', text='', highlight='royalblue', ok_label=local_string(32839), top_space=False):
 	from windows import open_window
 	if isinstance(heading, int): heading = local_string(heading)
 	if isinstance(text, int): text = local_string(text)
@@ -174,7 +174,7 @@ def ok_dialog(heading='Fen', text='', highlight='royalblue', ok_label=local_stri
 	kwargs = {'heading': heading, 'text': text, 'highlight': highlight, 'ok_label': ok_label}
 	return open_window(('windows.select_ok', 'OK'), 'ok.xml', **kwargs)
 
-def confirm_dialog(heading='Fen', text='', highlight='royalblue', ok_label=local_string(32839), cancel_label=local_string(32840), top_space=False, default_control=11):
+def confirm_dialog(heading='B99', text='', highlight='royalblue', ok_label=local_string(32839), cancel_label=local_string(32840), top_space=False, default_control=11):
 	from windows import open_window
 	if isinstance(heading, int): heading = local_string(heading)
 	if isinstance(text, int): text = local_string(text)
@@ -198,7 +198,7 @@ def show_text(heading, text=None, file=None, font_size='small', kodi_log=False):
 	heading = heading.replace('[B]', '').replace('[/B]', '')
 	if file:
 		with open(file, encoding='utf-8') as r: text = r.readlines()
-	if kodi_log and confirm_dialog(heading='Fen', text=local_string(32855), ok_label=local_string(32824), cancel_label=local_string(32828), top_space=True):
+	if kodi_log and confirm_dialog(heading='B99', text=local_string(32855), ok_label=local_string(32824), cancel_label=local_string(32828), top_space=True):
 		text = [i for i in text if any(x in i.lower() for x in ('exception', 'error'))]
 	text = ''.join(text)
 	return open_window(('windows.textviewer', 'TextViewer'), 'textviewer.xml', heading=heading, text=text, font_size=font_size)
@@ -206,13 +206,13 @@ def show_text(heading, text=None, file=None, font_size='small', kodi_log=False):
 def notification(line1, time=5000, icon=None, sound=False):
 	if isinstance(line1, int): line1 = local_string(line1)
 	icon = icon or translate_path('special://home/addons/plugin.video.B99/icon.png')
-	xbmcgui.Dialog().notification('Fen', line1, icon, time, sound)
+	xbmcgui.Dialog().notification('B99', line1, icon, time, sound)
 
 def choose_view(view_type, content):
 	from sys import argv
 	__handle__ = int(argv[1])
 	set_view_str = local_string(32547)
-	settings_icon = translate_path('special://home/addons/script.ezart/resources/media/settings.png')
+	settings_icon = translate_path('special://home/addons/script.B99art/resources/media/settings.png')
 	fanart = translate_path('special://home/addons/plugin.video.B99/fanart.png')
 	listitem = make_listitem()
 	listitem.setLabel(set_view_str)
@@ -234,7 +234,7 @@ def set_view(view_type):
 	notification(get_infolabel('Container.Viewmode').upper(), time=1500)
 
 def set_view_property(view_type, view_id):
-	set_property('fen_%s' % view_type, view_id)
+	set_property('B99_%s' % view_type, view_id)
 
 def set_view_properties():
 	dbcon = database.connect(views_db, timeout=40.0, isolation_level=None)
@@ -243,11 +243,11 @@ def set_view_properties():
 	dbcur.execute('''PRAGMA journal_mode = OFF''')
 	dbcur.execute("SELECT * FROM views")
 	view_ids = dbcur.fetchall()
-	for item in view_ids: set_property('fen_%s' % item[0], item[1])
+	for item in view_ids: set_property('B99_%s' % item[0], item[1])
 
 def set_view_mode(view_type, content='files'):
 	if external_browse(): return
-	view_id = get_property('fen_%s' % view_type)
+	view_id = get_property('B99_%s' % view_type)
 	hold = 0
 	if not view_id:
 		try:
@@ -281,7 +281,7 @@ def build_url(url_params):
 
 def add_dir(url_params, list_name, __handle__, iconImage='DefaultFolder.png', fanartImage=None, isFolder=True):
 	fanart = fanartImage or translate_path('special://home/addons/plugin.video.B99/fanart.png')
-	icon = translate_path('special://home/addons/script.ezart/resources/media/%s' % iconImage)
+	icon = translate_path('special://home/addons/script.B99art/resources/media/%s' % iconImage)
 	url = build_url(url_params)
 	listitem = make_listitem()
 	listitem.setLabel(list_name)
@@ -311,7 +311,7 @@ def focus_index(index, sleep_time=100):
 	except: pass
 
 def clear_settings_window_properties():
-	clear_property('fen_settings')
+	clear_property('B99_settings')
 	notification(32576, 2500)
 
 def fetch_kodi_imagecache(image):

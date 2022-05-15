@@ -10,7 +10,7 @@ from modules.utils import manual_function_import, adjust_premiered_date, get_dat
 # from modules.kodi_utils import logger
 
 string = str
-source_folder_location = 'special://home/addons/script.module.ezscrapers/lib/B99scrapers/sources_B99scrapers/%s'
+source_folder_location = 'special://home/addons/script.module.B99scrapers/lib/B99scrapers/sources_B99scrapers/%s'
 RES_4K = ('.4k', 'hd4k', '4khd', '.uhd', 'ultrahd', 'ultra.hd', 'hd2160', '2160hd', '2160', '2160p', '216o', '216op')
 RES_1080 = ('1080', '1080p', '1080i', 'hd1080', '1080hd', 'hd1080p', 'm1080p', 'fullhd', 'full.hd', '1o8o', '1o8op', '108o', '108op', '1o80', '1o80p')
 RES_720 = ('720', '720p', '720i', 'hd720', '720hd', 'hd720p', '72o', '72op')
@@ -61,7 +61,7 @@ UNWANTED_TAGS = ('tamilrockers.com', 'www.tamilrockers.com', 'www.tamilrockers.w
 
 def internal_sources(active_sources, prescrape=False):
 	def import_info():
-		files = kodi_utils.list_dirs(kodi_utils.translate_path('special://home/addons/plugin.video.ezra/resources/lib/scrapers'))[1]
+		files = kodi_utils.list_dirs(kodi_utils.translate_path('special://home/addons/plugin.video.B99/resources/lib/scrapers'))[1]
 		for item in files:
 			try:
 				module_name = item.split('.')[0]
@@ -118,7 +118,7 @@ def toggle_all(folder, setting, silent=False):
 
 def enable_disable(folder):
 	try:
-		icon = kodi_utils.translate_path('special://home/addons/script.module.ezscrapers/icon.png')
+		icon = kodi_utils.translate_path('special://home/addons/script.module.B99scrapers/icon.png')
 		enabled, disabled = scrapers_status(folder)
 		all_sources = sorted(enabled + disabled)
 		preselect = [all_sources.index(i) for i in enabled]
@@ -148,7 +148,7 @@ def scrapers_status(folder='all'):
 def scraper_names(folder):
 	providerList = []
 	append = providerList.append
-	source_folder_location = 'special://home/addons/script.module.ezscrapers/lib/B99scrapers/sources_B99scrapers/%s'
+	source_folder_location = 'special://home/addons/script.module.B99scrapers/lib/B99scrapers/sources_B99scrapers/%s'
 	sourceSubFolders = ('hosters', 'torrents')
 	if folder != 'all': sourceSubFolders = [i for i in sourceSubFolders if i == folder]
 	for item in sourceSubFolders:

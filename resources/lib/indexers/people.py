@@ -8,7 +8,7 @@ from indexers.images import Images
 from modules.kodi_utils import translate_path, select_dialog, dialog
 # from modules.kodi_utils import logger
 
-icon_directory = 'special://home/addons/script.ezart/resources/media/%s'
+icon_directory = 'special://home/addons/script.B99art/resources/media/%s'
 tmdb_image_url = 'https://image.tmdb.org/t/p/h632/%s'
 
 def popular_people():
@@ -38,7 +38,7 @@ def person_search(query=None):
 				image = tmdb_image_url % item['profile_path'] if item['profile_path'] else translate_path(icon_directory % 'genre_family.png')
 				yield {'line1': item['name'], 'line2': ', '.join(known_for_list) if known_for_list else '', 'icon': image}
 		list_items = list(_builder())
-		kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+		kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 		selection = select_dialog(actors, **kwargs)
 		if selection == None: return None, None, None
 		actor_id = int(selection['id'])

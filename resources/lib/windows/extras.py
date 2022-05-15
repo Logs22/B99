@@ -15,10 +15,10 @@ from modules.utils import get_datetime
 from modules.kodi_utils import translate_path, close_all_dialog, hide_busy_dialog, ok_dialog, fetch_kodi_imagecache, local_string as ls
 # from modules.kodi_utils import logger
 
-backup_poster = translate_path('special://home/addons/script.ezart/resources/media/box_office.png')
-backup_fanart = translate_path('special://home/addons/plugin.video.ezra/fanart.png')
-backup_thumbnail = translate_path('special://home/addons/script.ezart/resources/media/box_office.png')
-backup_cast_thumbnail = translate_path('special://home/addons/script.ezart/resources/media/genre_family.png')
+backup_poster = translate_path('special://home/addons/script.B99art/resources/media/box_office.png')
+backup_fanart = translate_path('special://home/addons/plugin.video.B99/fanart.png')
+backup_thumbnail = translate_path('special://home/addons/script.B99art/resources/media/box_office.png')
+backup_cast_thumbnail = translate_path('special://home/addons/script.B99art/resources/media/genre_family.png')
 tmdb_image_base = 'https://image.tmdb.org/t/p/%s%s'
 button_ids = (10, 11, 12, 13, 14, 15, 16, 17, 50)
 cast_id, recommended_id, reviews_id, trivia_id, blunders_id, parentsguide_id = 2050, 2051, 2052, 2053, 2054, 2055
@@ -124,7 +124,7 @@ class Extras(BaseDialog):
 				image = chosen_listitem.getProperty('tikiskins.extras.thumbnail')
 				params = {'action': 'image', 'name': '%s %s' % (self.rootname, chosen_listitem.getProperty('tikiskins.extras.name')),
 						'thumb_url': image.replace('w780', {posters_id: 'w185', backdrops_id: 'w300'}[focus_id]), 'image_url': image.replace('w780', 'original'),
-						'media_type': 'image', 'image': translate_path('special://home/addons/plugin.video.ezra/icon.png')}
+						'media_type': 'image', 'image': translate_path('special://home/addons/plugin.video.B99/icon.png')}
 				return runner(params)
 		if not self.control_id: return
 		if action in self.selection_actions:
@@ -251,7 +251,7 @@ class Extras(BaseDialog):
 					ranking = parentsguide_levels[item['ranking'].lower()].upper()
 					if item['listings']:
 						ranking += ' (x%02d)' % len(item['listings'])
-					icon = translate_path('special://home/addons/script.ezart/resources/media/%s' % parentsguide_inputs[item['title']][1])
+					icon = translate_path('special://home/addons/script.B99art/resources/media/%s' % parentsguide_inputs[item['title']][1])
 					listitem.setProperty('tikiskins.extras.name', name)
 					listitem.setProperty('tikiskins.extras.ranking', ranking)
 					listitem.setProperty('tikiskins.extras.thumbnail', icon)

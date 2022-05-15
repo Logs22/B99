@@ -5,7 +5,7 @@ from modules.kodi_utils import translate_path, hide_busy_dialog, dialog, select_
 from modules.settings import get_art_provider, provider_sort_ranks, get_fanart_data
 # from modules.kodi_utils import logger
 
-media_folder = 'special://home/addons/plugin.video.ezra/resources/skins/Default/media/%s'
+media_folder = 'special://home/addons/plugin.video.B99/resources/skins/Default/media/%s'
 info_icons_dict = {'furk': translate_path(media_folder % 'providers/furk.png'),
 					'easynews': translate_path(media_folder % 'providers/easynews.png'),
 					'alldebrid': translate_path(media_folder % 'providers/alldebrid.png'),
@@ -33,8 +33,8 @@ filters_ignored, start_full_scrape = ls(32686), ls(33023)
 filter_quality, filter_provider, filter_title, filter_extraInfo = ls(32154), ls(32157), ls(32679), ls(32169)
 run_plugin_str = 'RunPlugin(%s)'
 pack_check = ('true', 'show', 'season')
-backup_poster = translate_path('special://home/addons/script.ezart/resources/media/box_office.png')
-backup_fanart = translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+backup_poster = translate_path('special://home/addons/script.B99art/resources/media/box_office.png')
+backup_fanart = translate_path('special://home/addons/plugin.video.B99/fanart.png')
 string = str
 upper = string.upper
 lower = string.lower
@@ -66,7 +66,7 @@ class SourceResults(BaseDialog):
 
 	def get_provider_and_path(self, provider):
 		if provider in info_icons_dict: provider_path = info_icons_dict[provider]
-		else: provider, provider_path = 'folders', translate_path('special://home/addons/plugin.video.ezra/resources/skins/Default/media/providers/folders.png')
+		else: provider, provider_path = 'folders', translate_path('special://home/addons/plugin.video.B99/resources/skins/Default/media/providers/folders.png')
 		return provider, provider_path
 
 	def get_quality_and_path(self, quality):
@@ -259,7 +259,7 @@ class ResultsInfo(BaseDialog):
 	def get_provider_and_path(self):
 		provider = lower(self.item.getProperty('tikiskins.provider'))
 		if provider in info_icons_dict: provider_path = info_icons_dict[provider]
-		else: provider_path = translate_path('special://home/addons/plugin.video.ezra/resources/skins/Default/media/providers/folders.png')
+		else: provider_path = translate_path('special://home/addons/plugin.video.B99/resources/skins/Default/media/providers/folders.png')
 		return provider, provider_path
 
 	def get_quality_and_path(self):

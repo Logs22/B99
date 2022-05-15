@@ -12,9 +12,9 @@ from modules.settings import extras_enable_scrollbars, extras_exclude_non_acting
 # from modules.kodi_utils import logger
 
 tmdb_image_base = 'https://image.tmdb.org/t/p/%s%s'
-fanart = translate_path('special://home/addons/plugin.video.ezra/fanart.png')
-backup_thumbnail = translate_path('special://home/addons/script.ezart/resources/media/box_office.png')
-backup_cast_thumbnail = translate_path('special://home/addons/script.ezart/resources/media/genre_family.png')
+fanart = translate_path('special://home/addons/plugin.video.B99/fanart.png')
+backup_thumbnail = translate_path('special://home/addons/script.B99art/resources/media/box_office.png')
+backup_cast_thumbnail = translate_path('special://home/addons/script.B99art/resources/media/genre_family.png')
 roles_exclude = ('himself', 'herself', 'self', 'narrator', 'voice (voice)')
 button_ids = [10, 11, 50]
 genres_exclude = (10763, 10764, 10767)		

@@ -28,7 +28,7 @@
                 <width>60</width>
                 <height>60</height>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture>common/ezra.png</texture>
+                <texture>common/B99.png</texture>
             </control>
             <control type="label">
                 <left>75</left>
@@ -39,7 +39,7 @@
                 <textcolor>FFFFFFFF</textcolor>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>[UPPERCASE]$ADDON[plugin.video.ezra 32022] $INFO[Window.Property(tikiskins.page_no)][/UPPERCASE]</label>
+                <label>[UPPERCASE]$ADDON[plugin.video.B99 32022] $INFO[Window.Property(tikiskins.page_no)][/UPPERCASE]</label>
             </control>
             <control type="label">
                 <left>350</left>

@@ -9,8 +9,8 @@ def build_navigate_to_page(params):
 	import json
 	from modules.settings import nav_jump_use_alphabet
 	use_alphabet = nav_jump_use_alphabet()
-	icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/item_jump.png')
-	fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+	icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/item_jump.png')
+	fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 	media_type = params.get('media_type')
 	def _builder(use_alphabet):
 		for i in start_list:
@@ -23,7 +23,7 @@ def build_navigate_to_page(params):
 		start_list = [str(i) for i in range(1, int(params.get('total_pages'))+1)]
 		start_list.remove(params.get('current_page'))
 	list_items = list(_builder(use_alphabet))
-	kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+	kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 	new_start = kodi_utils.select_dialog(start_list, **kwargs)
 	kodi_utils.sleep(100)
 	if new_start == None: return
@@ -69,7 +69,7 @@ def toggle_jump_to():
 	kodi_utils.execute_builtin('Container.Refresh')
 	kodi_utils.notification(ls(32851) % new_action)
 
-def open_settings(query, addon='plugin.video.ezra'):
+def open_settings(query, addon='plugin.video.B99'):
 	kodi_utils.sleep(250)
 	if query:
 		try:
@@ -100,7 +100,7 @@ def clean_settings():
 	kodi_utils.sleep(200)
 	kodi_utils.progressDialog.create(ls(32577), '')
 	kodi_utils.progressDialog.update(0)
-	addon_ids = ('plugin.video.ezra', 'script.module.ezscrapers', 'script.module.myaccounts')
+	addon_ids = ('plugin.video.B99', 'script.module.B99scrapers', 'script.module.myaccounts')
 	addon_settings = 'special://home/addons/%s/resources/settings.xml'
 	addon_data_settings = 'special://profile/addon_data/%s/settings.xml'
 	addon_names = [kodi_utils.addon(i).getAddonInfo('name') for i in addon_ids]
@@ -235,7 +235,7 @@ def toggle_language_invoker():
 	import xml.etree.ElementTree as ET
 	kodi_utils.close_all_dialog()
 	kodi_utils.sleep(100)
-	addon_xml = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/addon.xml')
+	addon_xml = kodi_utils.translate_path('special://home/addons/plugin.video.B99/addon.xml')
 	current_addon_setting = get_setting('reuse_language_invoker', 'true')
 	new_value = 'false' if current_addon_setting == 'true' else 'true'
 	if not kodi_utils.confirm_dialog(text=ls(33018) % (current_addon_setting.upper(), new_value.upper())): return
@@ -310,7 +310,7 @@ def clear_cache(cache_type, silent=False):
 def clear_all_cache():
 	if not kodi_utils.confirm_dialog(): return
 	line = '[CR]%s....[CR]%s'
-	kodi_utils.progressDialog.create('Fen', '')
+	kodi_utils.progressDialog.create('B99', '')
 	caches = (('meta', '%s %s' % (ls(32527), ls(32524))), ('internal_scrapers', '%s %s' % (ls(32096), ls(32524))), ('external_scrapers', '%s %s' % (ls(32118), ls(32524))),
 			('trakt', ls(32087)), ('imdb', '%s %s' % (ls(32064), ls(32524))), ('list', '%s %s' % (ls(32815), ls(32524))),
 			('pm_cloud', '%s %s' % (ls(32061), ls(32524))), ('rd_cloud', '%s %s' % (ls(32054), ls(32524))), ('ad_cloud', '%s %s' % (ls(32063), ls(32524))))
@@ -333,7 +333,7 @@ def refresh_artwork():
 	dbcur.execute('''PRAGMA journal_mode = OFF''')
 	for item in ('icon.png', 'fanart.png'):
 		try:
-			icon_path = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/%s' % item)
+			icon_path = kodi_utils.translate_path('special://home/addons/plugin.video.B99/%s' % item)
 			dbcur.execute("SELECT cachedurl FROM texture WHERE url = ?", (icon_path,))
 			image = dbcur.fetchone()[0]
 			removal_path = kodi_utils.translate_path('special://thumbnails/%s' % image)
@@ -355,7 +355,7 @@ def upload_logfile():
 	if not kodi_utils.path_exists(log_file): return kodi_utils.ok_dialog(text='Error. Log File Not Found.', top_space=True)
 	try:
 		with kodi_utils.open_file(log_file) as f: text = f.read()
-		UserAgent = 'Fen %s' % kodi_utils.addon().getAddonInfo('version')
+		UserAgent = 'B99 %s' % kodi_utils.addon().getAddonInfo('version')
 		response = requests.post(''.join([url, 'documents']), data=text.encode('utf-8', errors='ignore'), headers={'User-Agent': UserAgent}).json()
 		if 'key' in response: kodi_utils.ok_dialog(text=''.join([url, response['key']]), top_space=True)
 		else: kodi_utils.ok_dialog(text='Error. Log Upload Failed')

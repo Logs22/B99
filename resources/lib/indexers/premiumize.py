@@ -11,8 +11,8 @@ from modules.utils import clean_file_name, normalize
 ls = kodi_utils.local_string
 make_listitem = kodi_utils.make_listitem
 build_url = kodi_utils.build_url
-default_pm_icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/premiumize.png')
-fanart = kodi_utils.translate_path('special://home/addons/plugin.video.ezra/fanart.png')
+default_pm_icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/premiumize.png')
+fanart = kodi_utils.translate_path('special://home/addons/plugin.video.B99/fanart.png')
 folder_str, file_str, down_str, archive_str, rename_str, delete_str = ls(32742).upper(), ls(32743).upper(), ls(32747), ls(32982), ls(32748), ls(32785)
 extensions = supported_video_extensions()
 Premiumize = PremiumizeAPI()
@@ -113,7 +113,7 @@ def pm_transfers():
 	kodi_utils.set_view_mode('view.premium')
 
 def pm_rename(file_type, file_id, current_name):
-	new_name = kodi_utils.dialog.input('Fen', defaultt=current_name)
+	new_name = kodi_utils.dialog.input('B99', defaultt=current_name)
 	if not new_name: return
 	result = Premiumize.rename_cache_item(file_type, file_id, new_name)
 	if result == 'success':

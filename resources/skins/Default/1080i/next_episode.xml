@@ -30,7 +30,7 @@
                     <width>45</width>
                     <height>45</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="BFCCCCCC">common/ezra.png</texture>
+                    <texture colordiffuse="BFCCCCCC">common/B99.png</texture>
                 </control>
                 <control type="image">
                     <height>230</height>
@@ -49,7 +49,7 @@
                         <aligny>bottom</aligny>
                         <align>left</align>
                         <font>font14</font>
-                        <label>[B]$ADDON[plugin.video.ezra 33041].... $INFO[Player.TimeRemaining()][/B]</label>
+                        <label>[B]$ADDON[plugin.video.B99 33041].... $INFO[Player.TimeRemaining()][/B]</label>
                     </control>
                     <control type="textbox">
                         <left>160</left>
@@ -75,7 +75,7 @@
                             <height>45</height>
                             <onleft>12</onleft>
                             <onright>11</onright>
-                            <label>$ADDON[plugin.video.ezra 32614]</label>
+                            <label>$ADDON[plugin.video.B99 32614]</label>
                             <font>font10</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -92,7 +92,7 @@
                             <height>45</height>
                             <onleft>10</onleft>
                             <onright>12</onright>
-                            <label>$ADDON[plugin.video.ezra 32764]</label>
+                            <label>$ADDON[plugin.video.B99 32764]</label>
                             <font>font10</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -109,7 +109,7 @@
                             <height>45</height>
                             <onleft>11</onleft>
                             <onright>10</onright>
-                            <label>$ADDON[plugin.video.ezra 32840]</label>
+                            <label>$ADDON[plugin.video.B99 32840]</label>
                             <font>font10</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -130,7 +130,7 @@
                         <aligny>bottom</aligny>
                         <align>left</align>
                         <font>font14</font>
-                        <label>[B]$ADDON[plugin.video.ezra 32802][/B]</label>
+                        <label>[B]$ADDON[plugin.video.B99 32802][/B]</label>
                     </control>
                     <control type="textbox">
                         <left>160</left>
@@ -156,7 +156,7 @@
                             <height>45</height>
                             <onleft>11</onleft>
                             <onright>11</onright>
-                            <label>$ADDON[plugin.video.ezra 32824]</label>
+                            <label>$ADDON[plugin.video.B99 32824]</label>
                             <font>font10</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>
@@ -173,7 +173,7 @@
                             <height>45</height>
                             <onleft>10</onleft>
                             <onright>10</onright>
-                            <label>$ADDON[plugin.video.ezra 32828]</label>
+                            <label>$ADDON[plugin.video.B99 32828]</label>
                             <font>font10</font>
                             <textcolor>FFB7B4BB</textcolor>
                             <focusedcolor>FF302F2F</focusedcolor>

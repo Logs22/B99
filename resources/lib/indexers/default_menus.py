@@ -173,7 +173,7 @@ tvshow_list = [{'name': 32458,
 
 default_menu_items = ('RootList', 'MovieList', 'TVShowList')
 main_menus = {'RootList': root_list, 'MovieList': movie_list, 'TVShowList': tvshow_list}
-main_menu_items = {'RootList': {'name': 32457, 'iconImage': 'ezra.png', 'mode': 'navigator.main', 'action': 'RootList'},
+main_menu_items = {'RootList': {'name': 32457, 'iconImage': 'B99.png', 'mode': 'navigator.main', 'action': 'RootList'},
 					'MovieList': root_list[0],
 					'TVShowList': root_list[1]}
 

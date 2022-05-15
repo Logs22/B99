@@ -24,8 +24,8 @@ tmdb_special_key_dict = {'tmdb_movies_languages': 'language', 'tmdb_movies_netwo
 personal_dict = {'in_progress_movies': ('modules.watched_status', 'get_in_progress_movies'), 'favourites_movies': ('modules.favourites', 'retrieve_favourites'),
 				'watched_movies': ('modules.watched_status', 'get_watched_items')}
 run_plugin, container_refresh, container_update = 'RunPlugin(%s)', 'Container.Refresh(%s)', 'Container.Update(%s)'
-item_jump, item_next = tp('special://home/addons/script.ezart/resources/media/item_jump.png'), tp('special://home/addons/script.ezart/resources/media/item_next.png')
-poster_empty, fanart_empty = tp('special://home/addons/script.ezart/resources/media/box_office.png'), tp('special://home/addons/plugin.video.ezra/fanart.png')
+item_jump, item_next = tp('special://home/addons/script.B99art/resources/media/item_jump.png'), tp('special://home/addons/script.B99art/resources/media/item_next.png')
+poster_empty, fanart_empty = tp('special://home/addons/script.B99art/resources/media/box_office.png'), tp('special://home/addons/plugin.video.B99/fanart.png')
 watched_str, unwatched_str, traktmanager_str = ls(32642), ls(32643), ls(32198)
 favmanager_str, extras_str, options_str, recomm_str = ls(32197), ls(32645), ls(32646), '[B]%s...[/B]' % ls(32503)
 hide_str, exit_str, clearprog_str, play_str = ls(32648), ls(32649), ls(32651), '[B]%s...[/B]' % ls(32174)
@@ -184,7 +184,7 @@ class Movies:
 			if resumetime != '0':
 				clearprog_params = build_url({'mode': 'watched_unwatched_erase_bookmark', 'media_type': 'movie', 'tmdb_id': tmdb_id, 'refresh': 'true'})
 				cm_append((clearprog_str, run_plugin % clearprog_params))
-				set_property('fen_in_progress', 'true')
+				set_property('B99_in_progress', 'true')
 			if playcount:
 				if self.widget_hide_watched: return
 				unwatched_params = build_url({'mode': 'mark_as_watched_unwatched_movie', 'action': 'mark_as_unwatched', 'tmdb_id': tmdb_id, 'title': title, 'year': year})
@@ -202,18 +202,18 @@ class Movies:
 							'clearlogo': clearlogo, 'landscape': landscape, 'discart': discart})
 			listitem.setInfo('Video', remove_meta_keys(meta, dict_removals))
 			set_property('resumetime', resumetime)
-			set_property('fen_sort_order', string(item_position))
+			set_property('B99_sort_order', string(item_position))
 			if self.is_widget:
-				set_property('fen_widget', 'true')
-				set_property('fen_playcount', string(playcount))
-				set_property('fen_extras_menu_params', extras_params)
-				set_property('fen_options_menu_params', options_params)
-				set_property('fen_trakt_manager_params', trakt_manager_params)
-				set_property('fen_fav_manager_params', fav_manager_params)
-				set_property('fen_unwatched_params', unwatched_params)
-				set_property('fen_watched_params', watched_params)
-				set_property('fen_clearprog_params', clearprog_params)
-			else: set_property('fen_widget', 'false')
+				set_property('B99_widget', 'true')
+				set_property('B99_playcount', string(playcount))
+				set_property('B99_extras_menu_params', extras_params)
+				set_property('B99_options_menu_params', options_params)
+				set_property('B99_trakt_manager_params', trakt_manager_params)
+				set_property('B99_fav_manager_params', fav_manager_params)
+				set_property('B99_unwatched_params', unwatched_params)
+				set_property('B99_watched_params', watched_params)
+				set_property('B99_clearprog_params', clearprog_params)
+			else: set_property('B99_widget', 'false')
 			self.append((url_params, listitem, False))
 		except: pass
 
@@ -236,12 +236,12 @@ class Movies:
 		if self.is_widget == 'unchecked': self.is_widget = external_browse()
 		self.widget_hide_watched = self.is_widget and self.meta_user_info['widget_hide_watched']
 		if not self.exit_list_params: self.exit_list_params = get_infolabel('Container.FolderPath')
-		self.watched_title = 'Trakt' if self.watched_indicators == 1 else 'Fen'
+		self.watched_title = 'Trakt' if self.watched_indicators == 1 else 'B99'
 		self.poster_main, self.poster_backup, self.fanart_main, self.fanart_backup = get_art_provider()
 		self.append = self.items.append
 		threads = list(make_thread_list_enumerate(self.build_movie_content, self.list, Thread))
 		[i.join() for i in threads]
-		self.items.sort(key=lambda k: int(k[1].getProperty('fen_sort_order')))
+		self.items.sort(key=lambda k: int(k[1].getProperty('B99_sort_order')))
 		return self.items
 
 	def build_collections_results(self):

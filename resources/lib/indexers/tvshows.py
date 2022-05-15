@@ -22,8 +22,8 @@ tmdb_special_key_dict = {'tmdb_tv_languages': 'language', 'tmdb_tv_networks': 'n
 personal_dict = {'in_progress_tvshows': ('modules.watched_status', 'get_in_progress_tvshows'), 'favourites_tvshows': ('modules.favourites', 'retrieve_favourites'),
 				'watched_tvshows': ('modules.watched_status', 'get_watched_items')}
 run_plugin, container_update, container_refresh = 'RunPlugin(%s)', 'Container.Update(%s)', 'Container.Refresh(%s)'
-item_jump, item_next = tp('special://home/addons/script.ezart/resources/media/item_jump.png'), tp('special://home/addons/script.ezart/resources/media/item_next.png')
-poster_empty, fanart_empty = tp('special://home/addons/script.ezart/resources/media/box_office.png'), tp('special://home/addons/plugin.video.ezra/fanart.png')
+item_jump, item_next = tp('special://home/addons/script.B99art/resources/media/item_jump.png'), tp('special://home/addons/script.B99art/resources/media/item_next.png')
+poster_empty, fanart_empty = tp('special://home/addons/script.B99art/resources/media/box_office.png'), tp('special://home/addons/plugin.video.B99/fanart.png')
 watched_str, unwatched_str, traktmanager_str = ls(32642), ls(32643), ls(32198)
 favmanager_str, extras_str, options_str, random_str, recomm_str = ls(32197), ls(32645), ls(32646), ls(32611), '[B]%s...[/B]' % ls(32503)
 exit_str, nextpage_str, switchjump_str, browse_str, jumpto_str = ls(32650), ls(32799), ls(32784), ls(32652), ls(32964)
@@ -193,16 +193,16 @@ class TVShows:
 			set_property('unwatchedepisodes', string(total_unwatched))
 			set_property('totalepisodes', string(total_aired_eps))
 			set_property('totalseasons', string(total_seasons))
-			set_property('fen_sort_order', string(item_position))
+			set_property('B99_sort_order', string(item_position))
 			if self.is_widget:
-				set_property('fen_widget', 'true')
-				set_property('fen_playcount', string(playcount))
-				set_property('fen_extras_menu_params', extras_params)
-				set_property('fen_options_menu_params', options_params)
-				set_property('fen_trakt_manager_params', trakt_manager_params)
-				set_property('fen_fav_manager_params', fav_manager_params)
-				set_property('fen_random_params', random_params)
-			else: set_property('fen_widget', 'false')
+				set_property('B99_widget', 'true')
+				set_property('B99_playcount', string(playcount))
+				set_property('B99_extras_menu_params', extras_params)
+				set_property('B99_options_menu_params', options_params)
+				set_property('B99_trakt_manager_params', trakt_manager_params)
+				set_property('B99_fav_manager_params', fav_manager_params)
+				set_property('B99_random_params', random_params)
+			else: set_property('B99_widget', 'false')
 			self.append((url_params, listitem, self.is_folder))
 		except: pass
 
@@ -225,13 +225,13 @@ class TVShows:
 		self.open_extras = extras_open_action('tvshow')
 		self.fanart_enabled = self.meta_user_info['extra_fanart_enabled']
 		self.hide_watched = self.is_widget and self.meta_user_info['widget_hide_watched']
-		self.watched_title = 'Trakt' if self.watched_indicators == 1 else 'Fen'
+		self.watched_title = 'Trakt' if self.watched_indicators == 1 else 'B99'
 		self.is_folder = False if self.open_extras else True
 		self.poster_main, self.poster_backup, self.fanart_main, self.fanart_backup = get_art_provider()
 		self.append = self.items.append
 		threads = list(make_thread_list_enumerate(self.build_tvshow_content, self.list, Thread))
 		[i.join() for i in threads]
-		self.items.sort(key=lambda k: int(k[1].getProperty('fen_sort_order')))
+		self.items.sort(key=lambda k: int(k[1].getProperty('B99_sort_order')))
 		return self.items
 
 	def add_dir(self, url_params, list_name=nextpage_str, iconImage=item_next, isFolder=True):

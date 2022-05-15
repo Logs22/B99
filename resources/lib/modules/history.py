@@ -7,7 +7,7 @@ from modules import kodi_utils
 # from modules.kodi_utils import logger
 
 ls = kodi_utils.local_string
-icon = kodi_utils.translate_path('special://home/addons/script.ezart/resources/media/search.png')
+icon = kodi_utils.translate_path('special://home/addons/script.B99art/resources/media/search.png')
 four_insert_string, five_insert_string = '%s %s %s %s', '%s %s %s %s %s'
 delete_str, search_str, hist_str, vid_str, mov_str, key_str = ls(32785), ls(32450), ls(32486), ls(32491), ls(32028), ls(32092)
 tv_str, furk_str, easy_str, peop_str, imdb_str, tmdb_str, coll_str = ls(32029), ls(32069), ls(32070), ls(32507), ls(32064), ls(32068), ls(32499)
@@ -36,7 +36,7 @@ def get_search_term(params):
 		url_params, string = {'mode': 'easynews.search_easynews'}, 'easynews_video_queries'
 	if search_type == 'tmdb_collections':
 		url_params, string = {'mode': 'build_movie_list', 'action': 'tmdb_movies_search_collections'}, 'tmdb_collections_queries'
-	query = params.get('query', None) or kodi_utils.dialog.input('Fen')
+	query = params.get('query', None) or kodi_utils.dialog.input('B99')
 	if not query: return
 	query = unquote(query)
 	add_to_search_history(query, string)
@@ -70,7 +70,7 @@ def remove_from_search_history(params):
 def clear_search_history():
 	try:
 		list_items = [{'line1': item[0], 'icon': icon} for item in clear_history_list]
-		kwargs = {'items': json.dumps(list_items), 'heading': 'Fen', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
+		kwargs = {'items': json.dumps(list_items), 'heading': 'B99', 'enumerate': 'false', 'multi_choice': 'false', 'multi_line': 'false'}
 		setting = kodi_utils.select_dialog([item[1] for item in clear_history_list], **kwargs)
 		if setting == None: return
 		main_cache.set(setting, '', expiration=timedelta(days=365))

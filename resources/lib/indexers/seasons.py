@@ -11,7 +11,7 @@ add_items, set_content, end_directory, set_view_mode = kodi_utils.add_items, kod
 adjust_premiered_date_function, get_datetime_function, get_watched_status, get_watched_info = adjust_premiered_date, get_datetime, get_watched_status_season, get_watched_info_tv
 metadata_user_info, watched_indicators_info, show_unaired_info = settings.metadata_user_info, settings.watched_indicators, settings.show_unaired
 get_art_provider, show_specials, use_season_title_info = settings.get_art_provider, settings.show_specials, settings.use_season_title
-poster_empty, fanart_empty = ts('special://home/addons/script.ezart/resources/media/box_office.png'), ts('special://home/addons/plugin.video.ezra/fanart.png')
+poster_empty, fanart_empty = ts('special://home/addons/script.B99art/resources/media/box_office.png'), ts('special://home/addons/plugin.video.B99/fanart.png')
 season_str, watched_str, unwatched_str, extras_str, options_str = ls(32537), ls(32642), ls(32643), ls(32645), ls(32646)
 string, run_plugin, unaired_label, tmdb_poster = str, 'RunPlugin(%s)', '[COLOR red][I]%s[/I][/COLOR]', 'https://image.tmdb.org/t/p/'
 
@@ -78,11 +78,11 @@ def build_season_list(params):
 				set_property('unwatchedepisodes', string(unwatched))
 				set_property('totalepisodes', string(episode_count))
 				if is_widget:
-					set_property('fen_widget', 'true')
-					set_property('fen_playcount', string(playcount))
-					set_property('fen_extras_menu_params', extras_params)
-					set_property('fen_options_menu_params', options_params)
-				else: set_property('fen_widget', 'false')
+					set_property('B99_widget', 'true')
+					set_property('B99_playcount', string(playcount))
+					set_property('B99_extras_menu_params', extras_params)
+					set_property('B99_options_menu_params', options_params)
+				else: set_property('B99_widget', 'false')
 				yield (url_params, listitem, True)
 			except: pass
 	__handle__ = int(argv[1])
@@ -115,7 +115,7 @@ def build_season_list(params):
 	if not show_specials(): season_data = [i for i in season_data if not i['season_number'] == 0]
 	season_data.sort(key=lambda k: k['season_number'])
 	use_season_title = use_season_title_info()
-	watched_title = 'Trakt' if watched_indicators == 1 else 'Fen'
+	watched_title = 'Trakt' if watched_indicators == 1 else 'B99'
 	add_items(__handle__, list(_process()))
 	set_content(__handle__, 'seasons')
 	end_directory(__handle__, False if is_widget else None)

@@ -398,7 +398,7 @@ def clear_local_bookmarks():
 	try:
 		dbcon = make_database_connection(kodi_utils.get_video_database_path())
 		dbcur = set_PRAGMAS(dbcon)
-		file_ids = dbcur.execute("SELECT idFile FROM files WHERE strFilename LIKE 'plugin.video.ezra%'").fetchall()
+		file_ids = dbcur.execute("SELECT idFile FROM files WHERE strFilename LIKE 'plugin.video.B99%'").fetchall()
 		for i in ('bookmark', 'streamdetails', 'files'):
 			dbcur.executemany("DELETE FROM %s WHERE idFile=?" % i, file_ids)
 	except: pass
