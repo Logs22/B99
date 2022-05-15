@@ -11,7 +11,7 @@ add_item, set_content, end_directory, set_view_mode, add_items, set_sort_method 
 download_directory, furk_active, easynews_active, source_folders_directory = s.download_directory, s.furk_active, s.easynews_active, s.source_folders_directory
 get_shortcut_folders, currently_used_list, get_shortcut_folder_contents, wi = nc.get_shortcut_folders, nc.currently_used_list, nc.get_shortcut_folder_contents, s.watched_indicators
 _in_str, mov_str, tv_str, edit_str, browse_str, add_menu_str, s_folder_str = ls(32484), ls(32028), ls(32029), ls(32705), ls(32706), ls(32730), ls(32731)
-icon_directory, fanart = 'special://home/addons/script.ezart/resources/media/%s', tp('special://home/addons/plugin.video.ezra/fanart.png')
+icon_directory, fanart = 'special://home/addons/script.B99art/resources/media/%s', tp('special://home/addons/plugin.video.B99/fanart.png')
 non_folder_items = ('get_search_term', 'build_popular_people')
 
 class Navigator:
@@ -218,11 +218,11 @@ class Navigator:
 
 	def settings(self):
 		settings_str = ls(32247)
-		fen_str, fenom_scr_str, myaccounts_str = ls(32036), ls(32522), ls(33025)
+		B99_str, B99_scr_str, myaccounts_str = ls(32036), ls(32522), ls(33025)
 		n_ins, lst_ins = _in_str % (settings_str.upper(), '%s'), (_in_str % (settings_str, '%s')).replace('[B]', '').replace(': [/B]', ' ')
-		self.AD({'mode': 'open_settings', 'query': '0.0', 'list_name': lst_ins % fen_str}, n_ins % fen_str, 'settings.png', False)
-		self.AD({'mode': 'external_settings', 'ext_addon': 'script.module.ezscrapers', 'list_name': lst_ins % fenom_scr_str},
-																				n_ins % fenom_scr_str, 'settings.png', False)
+		self.AD({'mode': 'open_settings', 'query': '0.0', 'list_name': lst_ins % B99_str}, n_ins % B99_str, 'settings.png', False)
+		self.AD({'mode': 'external_settings', 'ext_addon': 'script.module.B99scrapers', 'list_name': lst_ins % B99_scr_str},
+																				n_ins % B99_scr_str, 'settings.png', False)
 		self.AD({'mode': 'external_settings', 'ext_addon': 'script.module.myaccounts', 'list_name': lst_ins % myaccounts_str},
 																				n_ins % myaccounts_str, 'settings.png', False)
 		self._end_directory()
@@ -276,12 +276,12 @@ class Navigator:
 
 	def log_utils(self):
 		log_path = 'special://home/addons/%s/changelog.txt'
-		fen_str, cl_str, fs_str, ma_str, lut_str, k_str = ls(32036), ls(32508), ls(32522), ls(33025), ls(32777), ls(32538)
+		B99_str, cl_str, fs_str, ma_str, lut_str, k_str = ls(32036), ls(32508), ls(32522), ls(33025), ls(32777), ls(32538)
 		lv_str, lu_str = ls(32509), ls(32853)
-		fen_vstr = addon().getAddonInfo('version')
-		sc_v, ma_v = addon('script.module.ezscrapers').getAddonInfo('version'), addon('script.module.myaccounts').getAddonInfo('version')
-		mt_str, mh_str = tp(log_path % 'plugin.video.ezra/resources/text'), '[B]%s[/B]: %s  [I](v.%s)[/I]' % (cl_str.upper(), fen_str, fen_vstr)
-		sct_str, mat_str = tp(log_path % 'script.module.ezscrapers'), tp(log_path % 'script.module.myaccounts')
+		B99_vstr = addon().getAddonInfo('version')
+		sc_v, ma_v = addon('script.module.B99scrapers').getAddonInfo('version'), addon('script.module.myaccounts').getAddonInfo('version')
+		mt_str, mh_str = tp(log_path % 'plugin.video.B99/resources/text'), '[B]%s[/B]: %s  [I](v.%s)[/I]' % (cl_str.upper(), B99_str, B99_vstr)
+		sct_str, mat_str = tp(log_path % 'script.module.B99scrapers'), tp(log_path % 'script.module.myaccounts')
 		sch_str, mah_str = '[B]%s[/B]: %s  [I](v.%s)[/I]' % (cl_str.upper(), fs_str, sc_v), '[B]%s[/B]: %s  [I](v.%s)[/I]' % (cl_str.upper(), ma_str, ma_v)
 		klv_h, klu_h, kl_loc = '[B]%s[/B]: %s %s' % (lut_str.upper(), k_str, lv_str), '[B]%s[/B]: %s' % (lut_str.upper(), lu_str), tp('special://logpath/kodi.log')
 		self.AD({'mode': 'show_text', 'heading': mh_str, 'file': mt_str, 'exclude_external': 'true'}, mh_str, 'lists.png', False)
@@ -348,7 +348,7 @@ class Navigator:
 		menu_type, genre_list = self.params['menu_type'], self.params['genre_list']
 		function_list = []
 		function_list_append = function_list.append
-		icon_directory = 'special://home/addons/script.ezart/resources/media/'
+		icon_directory = 'special://home/addons/script.B99art/resources/media/'
 		genre_list = json.loads(genre_list)
 		list_items = list(_builder())
 		kwargs = {'items': json.dumps(list_items), 'heading': ls(32847), 'enumerate': 'false', 'multi_choice': 'true', 'multi_line': 'false'}
@@ -401,7 +401,7 @@ class Navigator:
 		self._end_directory()
 
 	def tips(self):
-		tips_location = 'special://home/addons/plugin.video.ezra/resources/text/tips'
+		tips_location = 'special://home/addons/plugin.video.B99/resources/text/tips'
 		files = sorted(list_dirs(tips_location)[1])
 		tips_location = tips_location + '/%s'
 		help_str, new_str, spotlight_str = ls(32487).upper(), ls(32857).upper(), ls(32858).upper()
@@ -424,14 +424,14 @@ class Navigator:
 
 	def because_you_watched(self):
 		from modules.watched_status import get_watched_info_movie, get_watched_info_tv
-		def _convert_fen_watched_episodes_info(watched_indicators):
+		def _convert_B99_watched_episodes_info(watched_indicators):
 			seen = set()
 			_watched = get_watched_info_tv(watched_indicators)
 			_watched.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
 			return [(i[0], i[3], i[4], [(i[1], i[2])]) for i in _watched if not (i[0] in seen or seen.add(i[0]))]
 		watched_indicators = wi()
 		media_type = self.params_get('menu_type')
-		function = get_watched_info_movie if media_type == 'movie' else _convert_fen_watched_episodes_info
+		function = get_watched_info_movie if media_type == 'movie' else _convert_B99_watched_episodes_info
 		mode = 'build_movie_list' if media_type == 'movie' else 'build_tvshow_list'
 		action = 'tmdb_movies_recommendations' if media_type == 'movie' else 'tmdb_tv_recommendations'
 		recently_watched = function(watched_indicators)
